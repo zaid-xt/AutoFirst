@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Wrench } from 'lucide-react';
+import { Menu, X, Wrench, ShoppingCart } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { items } = useCart();
+
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +59,17 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
+              to="/cart"
+              className="relative text-gray-700 hover:text-blue-800 transition-colors duration-200"
+            >
+              <ShoppingCart className="h-6 w-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+            <Link
               to="/book"
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
             >
@@ -91,6 +106,21 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <Link
+                to="/cart"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between mx-4 px-4 py-2 text-gray-700 hover:text-blue-800 hover:bg-gray-50 rounded-lg font-medium transition-colors"
+              >
+                <span className="flex items-center">
+                  <ShoppingCart className="h-5 w-5 mr-2" />
+                  Cart
+                </span>
+                {totalItems > 0 && (
+                  <span className="bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
               <Link
                 to="/book"
                 onClick={() => setIsOpen(false)}
