@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Contact Us
@@ -237,56 +237,62 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Find Us
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Visit our head office or find us anywhere in South Africa through our mobile service
-            </p>
-          </div>
+    <section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Find Us</h2>
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        Visit our head office or find us anywhere in South Africa through our mobile service
+      </p>
+    </div>
 
-          <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">Interactive Google Map</p>
-              <p className="text-gray-500">123 Service Road, Johannesburg Central</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="rounded-2xl overflow-hidden h-96 w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.3396766504025!2d18.68943658812081!3d-33.932390653247374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc51e6ac8a654f%3A0x5b0da9390693fadb!2s6%20Mossie%20St%2C%20Kuils%20River%2C%20Cape%20Town%2C%207580!5e0!3m2!1sen!2sza!4v1754250930260!5m2!1sen!2sza"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+       
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="w-full h-full"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Social Media */}
-      <section className="py-20 bg-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Follow Us
           </h2>
-          <p className="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-12 max-w-2xl mx-auto">
             Stay connected for updates, tips, and special offers
           </p>
 
-          <div className="flex justify-center space-x-8">
-            <a
-              href="#"
-              className="bg-blue-700 hover:bg-blue-600 p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-            >
-              <Facebook className="h-8 w-8" />
-            </a>
-            <a
-              href="#"
-              className="bg-blue-700 hover:bg-blue-600 p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-            >
-              <Instagram className="h-8 w-8" />
-            </a>
-            <a
-              href="#"
-              className="bg-blue-700 hover:bg-blue-600 p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-            >
-              <Twitter className="h-8 w-8" />
-            </a>
+         <div className="flex justify-center space-x-8">
+  <a
+    href="#"
+    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+  >
+    <Facebook className="h-8 w-8" />
+  </a>
+  <a
+    href="#"
+    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+  >
+    <Instagram className="h-8 w-8" />
+  </a>
+  <a
+    href="#"
+    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+  >
+    <Twitter className="h-8 w-8" />
+  </a>
+
           </div>
         </div>
       </section>
