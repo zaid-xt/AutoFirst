@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Wrench, ShoppingCart } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
+import autoFirstLogo from '../images/auto first.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-blue-800 p-2 rounded-lg">
-              <Wrench className="h-6 w-6 text-white" />
-            </div>
+            <img
+              src={autoFirstLogo}
+              alt="Auto First Logo"
+              className="h-28 w-28 rounded-lg object-contain"
+            />
             <div>
-              <span className="text-xl font-bold text-blue-800">Auto First</span>
-              <span className="text-sm text-gray-600 block -mt-1">Mechanical Aid</span>
+              {/* <span className="text-xl font-bold text-blue-800">Auto First</span>
+              <span className="text-sm text-gray-600 block -mt-1">Mechanical Aid</span> */}
             </div>
           </Link>
 
@@ -51,8 +54,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`transition-colors duration-200 font-medium ${
                   location.pathname === item.path
-                    ? 'text-blue-800 border-b-2 border-blue-800'
-                    : 'text-gray-700 hover:text-blue-800'
+                    ? 'text-red-600 border-b-2 border-red-600'
+                    : 'text-gray-700 hover:text-red-600'
                 }`}
               >
                 {item.name}
@@ -60,7 +63,11 @@ const Navbar = () => {
             ))}
             <Link
               to="/cart"
-              className="relative text-gray-700 hover:text-blue-800 transition-colors duration-200"
+              className={`relative transition-colors duration-200 font-medium ${
+                location.pathname === '/cart'
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
             >
               <ShoppingCart className="h-6 w-6" />
               {totalItems > 0 && (
@@ -71,7 +78,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/book"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
+              className="bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
             >
               Book Service
             </Link>
@@ -99,8 +106,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-2 font-medium transition-colors ${
                     location.pathname === item.path
-                      ? 'text-blue-800 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-800 hover:bg-gray-50'
+                      ? 'text-red-600 bg-red-50'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
                   }`}
                 >
                   {item.name}

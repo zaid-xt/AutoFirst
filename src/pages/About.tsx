@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">
             About Auto First
@@ -21,7 +21,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="bg-blue-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-black p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
@@ -32,7 +32,7 @@ const About = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Award className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
@@ -43,7 +43,7 @@ const About = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-green-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-black p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Heart className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Values</h3>
@@ -155,13 +155,13 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               By The Numbers
             </h2>
-            <p className="text-xl text-blue-200">
+            <p className="text-xl text-white">
               Trusted by thousands across South Africa
             </p>
           </div>

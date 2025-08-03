@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Our Services
@@ -261,7 +261,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Need Our Services?

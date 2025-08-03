@@ -44,7 +44,7 @@ const Home = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-800">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black/40 to-black">
         <div className="absolute inset-0">
           <img
             src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg"
@@ -56,7 +56,7 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Breakdowns happen —<br />
-            <span className="text-orange-500">We've got you sorted</span>
+            <span style={{ color: '#b91c1c', fontWeight: 'bold' }}>We've got you sorted</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -67,14 +67,14 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/packages"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+              className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
-              View Packages
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="text-white">View Packages</span>
+              <ArrowRight className="ml-2 h-5 w-5 text-white" />
             </Link>
             <Link
               to="/book"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center"
+              className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center"
             >
               Book Now
             </Link>
@@ -207,7 +207,7 @@ const Home = () => {
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300 inline-flex items-center"
+              className="bg-black hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300 inline-flex items-center"
             >
               View All Services
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -217,13 +217,13 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-blue-800">
+      <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               What Our Customers Say
             </h2>
-            <p className="text-xl text-blue-200 max-w-2xl mx-auto">
+            <p className="text-xl text-white max-w-2xl mx-auto">
               Don't just take our word for it - hear from satisfied customers
             </p>
           </div>
@@ -278,25 +278,25 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-orange-500">
+      <section className="py-20 bg-white-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-black-100 mb-8 max-w-2xl mx-auto">
             Join thousands of satisfied customers who trust Auto First for their vehicle needs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/packages"
-              className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              className="bg-black text-white hover:bg-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
             >
               Choose Your Package
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
               to="/contact"
-              className="border-2 border-white text-white hover:bg-white hover:text-orange-500 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center"
+              className="bg-black text-white hover:bg-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
             >
               Contact Us Today
             </Link>
