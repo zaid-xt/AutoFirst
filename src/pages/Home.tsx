@@ -55,11 +55,11 @@ const Home = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Breakdowns happen —<br />
+            Breakdowns happen —<br/>
             <span style={{ color: '#b91c1c', fontWeight: 'bold' }}>We've got you sorted</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 max-w-5xl mx-auto leading-relaxed">
             Professional roadside assistance and vehicle repair services available 24/7. 
             Get back on the road quickly with South Africa's most trusted mechanical aid service.
           </p>
@@ -74,8 +74,8 @@ const Home = () => {
             </Link>
             <Link
               to="/book"
-              className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center"
-            >
+               className="border-2 border-white text-white hover:bg-white hover:text-[#b91c1c] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center"
+               >
               Book Now
             </Link>
           </div>
@@ -155,22 +155,22 @@ const Home = () => {
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   Engine diagnostics and repair
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   Brake system maintenance
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   Electrical system repairs
                 </li>
               </ul>
               <Link
                 to="/services"
-                className="text-blue-800 hover:text-orange-500 font-semibold flex items-center transition-colors"
-              >
+                  className="text-[#b91c1c] hover:text-red-700 font-semibold flex items-center transition-colors"
+>
                 Learn More <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
@@ -183,22 +183,22 @@ const Home = () => {
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   24/7 emergency callouts
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   On-site diagnostic services
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-[#b91c1c] rounded-full mr-3"></div>
                   Towing and recovery services
                 </li>
               </ul>
               <Link
                 to="/services"
-                className="text-blue-800 hover:text-orange-500 font-semibold flex items-center transition-colors"
-              >
+                  className="text-[#b91c1c] hover:text-red-700 font-semibold flex items-center transition-colors"
+                  >
                 Learn More <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
@@ -207,8 +207,8 @@ const Home = () => {
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="bg-black hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300 inline-flex items-center"
-            >
+              className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              >            
               View All Services
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -289,14 +289,14 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/packages"
-              className="bg-black text-white hover:bg-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
             >
               Choose Your Package
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
               to="/contact"
-              className="bg-black text-white hover:bg-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
             >
               Contact Us Today
             </Link>
