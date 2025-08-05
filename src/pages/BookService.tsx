@@ -347,7 +347,7 @@ const BookService = () => {
             </div>
 
             <div className="text-center p-8 bg-green-50 rounded-xl">
-              <div className="bg-green-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <MessageSquare className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">WhatsApp Chat</h3>
@@ -357,21 +357,21 @@ const BookService = () => {
                   const message = encodeURIComponent("Hi, I need to book a service");
                   window.open(`https://wa.me/27123456789?text=${message}`, '_blank');
                 }}
-                className="text-green-600 hover:text-green-700 font-semibold text-lg transition-colors"
+                className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors"
               >
                 Start Chat
               </button>
             </div>
 
             <div className="text-center p-8 bg-blue-50 rounded-xl">
-              <div className="bg-blue-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Mail className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Support</h3>
               <p className="text-gray-600 mb-4">Non-urgent inquiries</p>
               <a
                 href="mailto:bookings@autofirst.co.za"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors"
+                className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors"
               >
                 bookings@autofirst.co.za
               </a>
