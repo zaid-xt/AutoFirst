@@ -13,7 +13,7 @@ const Packages = () => {
       price: "R199",
       period: "/month",
       icon: <Shield className="h-8 w-8" />,
-      color: "blue",
+      color: "red",
       popular: false,
       responseTime: "60 min",
       supportLevel: "Standard Support",
@@ -35,7 +35,7 @@ const Packages = () => {
       price: "R349",
       period: "/month",
       icon: <Star className="h-8 w-8" />,
-      color: "orange",
+      color: "red",
       popular: true,
       responseTime: "30 min",
       supportLevel: "Priority Support",
@@ -58,7 +58,7 @@ const Packages = () => {
       price: "R549",
       period: "/month",
       icon: <Crown className="h-8 w-8" />,
-      color: "purple",
+      color: "red",
       popular: false,
       responseTime: "20 min",
       supportLevel: "VIP Support",
@@ -80,23 +80,29 @@ const Packages = () => {
 
   const getColorClasses = (color: string, popular: boolean = false) => {
     const colors = {
-      blue: {
-        bg: popular ? 'bg-blue-600' : 'bg-blue-800',
-        text: 'text-blue-600',
-        border: 'border-blue-600',
-        button: 'bg-blue-600 hover:bg-blue-700'
-      },
-      orange: {
-        bg: popular ? 'bg-orange-500' : 'bg-orange-600',
-        text: 'text-orange-500',
-        border: 'border-orange-500',
-        button: 'bg-orange-500 hover:bg-orange-600'
-      },
-      purple: {
-        bg: popular ? 'bg-purple-600' : 'bg-purple-700',
-        text: 'text-purple-600',
-        border: 'border-purple-600',
-        button: 'bg-purple-600 hover:bg-purple-700'
+      // blue: {
+      //   bg: popular ? 'bg-blue-600' : 'bg-blue-800',
+      //   text: 'text-blue-600',
+      //   border: 'border-blue-600',
+      //   button: 'bg-blue-600 hover:bg-blue-700'
+      // },
+      // orange: {
+      //   bg: popular ? 'bg-orange-500' : 'bg-orange-600',
+      //   text: 'text-orange-500',
+      //   border: 'border-orange-500',
+      //   button: 'bg-orange-500 hover:bg-orange-600'
+      // },
+      // purple: {
+      //   bg: popular ? 'bg-purple-600' : 'bg-purple-700',
+      //   text: 'text-purple-600',
+      //   border: 'border-purple-600',
+      //   button: 'bg-purple-600 hover:bg-purple-700'
+      // }, 
+      red: {
+        bg: popular ? 'bg-red-600' : 'bg-red-700',
+        text: 'text-red-600',
+        border: 'border-red-600',
+        button: 'bg-red-600 hover:bg-red-700'
       }
     };
     return colors[color as keyof typeof colors];
@@ -126,12 +132,12 @@ const Packages = () => {
                 <div
                   key={index}
                   className={`bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 ${
-                    pkg.popular ? 'border-4 border-orange-500 relative' : 'border border-gray-200'
+                    pkg.popular ? 'border-4 border-red-500 relative' : 'border border-gray-200'
                   }`}
                 >
                   {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                      <div className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
                         Most Popular
                       </div>
                     </div>
@@ -171,7 +177,8 @@ const Packages = () => {
                         description: pkg.description,
                         features: pkg.features.map(f => ({ feature: f.feature, included: f.included }))
                       })}
-                      className={`w-full ${colors.button} text-white py-4 px-6 rounded-lg font-semibold text-center transition-colors duration-300 block hover:shadow-lg`}
+                      className={`w-full ${colors.button} text-white py-4 px-6 rounded-lg 
+                      font-semibold text-center transition-colors duration-300 block hover:shadow-lg`}
                     >
                       Select {pkg.name}
                     </button>

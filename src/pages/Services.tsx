@@ -218,7 +218,7 @@ const Services = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-blue-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Fast Response</h3>
@@ -228,7 +228,7 @@ const Services = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Guaranteed Work</h3>
@@ -238,7 +238,7 @@ const Services = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-green-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Wrench className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Expert Technicians</h3>
@@ -248,7 +248,7 @@ const Services = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-purple-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Zap className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Modern Equipment</h3>
@@ -272,14 +272,14 @@ const Services = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/book"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
             >
               Book Service Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
             <a
               href="/contact"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center"
+              className="border-2 border-white text-white hover:bg-white hover:text-red-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center"
             >
               Get a Quote
             </a>

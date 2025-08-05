@@ -99,7 +99,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-all duration-300">
-              <div className="bg-blue-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Reliable Service</h3>
@@ -110,7 +110,7 @@ const Home = () => {
             </div>
 
             <div className="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 hover:shadow-lg transition-all duration-300">
-              <div className="bg-orange-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">24/7 Availability</h3>
@@ -121,7 +121,7 @@ const Home = () => {
             </div>
 
             <div className="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 hover:shadow-lg transition-all duration-300">
-              <div className="bg-green-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Expert Technicians</h3>

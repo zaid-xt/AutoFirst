@@ -102,7 +102,7 @@ const BookService = () => {
                 {/* Personal Information */}
                 <div className="bg-blue-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
-                    <User className="h-6 w-6 text-blue-600 mr-2" />
+                    <User className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Personal Information</h3>
                   </div>
                   
@@ -163,7 +163,7 @@ const BookService = () => {
                 {/* Vehicle Information */}
                 <div className="bg-orange-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
-                    <Car className="h-6 w-6 text-orange-600 mr-2" />
+                    <Car className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Vehicle Information</h3>
                   </div>
                   
@@ -237,7 +237,7 @@ const BookService = () => {
                 {/* Location and Schedule */}
                 <div className="bg-green-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
-                    <MapPin className="h-6 w-6 text-green-600 mr-2" />
+                    <MapPin className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Location & Schedule</h3>
                   </div>
                   
@@ -304,7 +304,7 @@ const BookService = () => {
                 <div className="text-center pt-8">
                   <button
                     type="submit"
-                    className="bg-blue-800 hover:bg-blue-900 text-white px-12 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="bg-red-800 hover:bg-red-900 text-white px-12 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     Submit Service Request
                   </button>

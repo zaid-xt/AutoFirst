@@ -33,7 +33,7 @@ const Contact = () => {
 
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-red-500 p-3 rounded-full flex-shrink-0">
+                  <div className="bg-red-600 p-3 rounded-full flex-shrink-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -49,14 +49,14 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-600 p-3 rounded-full flex-shrink-0">
+                  <div className="bg-red-600 p-3 rounded-full flex-shrink-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">General Inquiries</h3>
                     <a
                       href="tel:+27115551234"
-                      className="text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors block"
+                      className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors block"
                     >
                       +27 11 555 1234
                     </a>
@@ -65,20 +65,20 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-orange-500 p-3 rounded-full flex-shrink-0">
+                  <div className="bg-red-600 p-3 rounded-full flex-shrink-0">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Support</h3>
                     <a
                       href="mailto:info@autofirst.co.za"
-                      className="text-orange-600 hover:text-orange-700 font-semibold text-lg transition-colors block"
+                      className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors block"
                     >
                       info@autofirst.co.za
                     </a>
                     <a
                       href="mailto:bookings@autofirst.co.za"
-                      className="text-orange-600 hover:text-orange-700 font-semibold text-lg transition-colors block"
+                      className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors block"
                     >
                       bookings@autofirst.co.za
                     </a>
@@ -87,7 +87,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-600 p-3 rounded-full flex-shrink-0">
+                  <div className="bg-red-600 p-3 rounded-full flex-shrink-0">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -180,7 +180,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-800 hover:bg-blue-900 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 hover:shadow-lg"
+                  className="w-full bg-red-800 hover:bg-red-900 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 hover:shadow-lg"
                 >
                   Send Message
                 </button>
@@ -210,7 +210,7 @@ const Contact = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-blue-600 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Phone className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Customer Support</h3>
@@ -222,7 +222,7 @@ const Contact = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-orange-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <MapPin className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Office Hours</h3>

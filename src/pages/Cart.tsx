@@ -20,7 +20,7 @@ const Cart = () => {
             </p>
             <Link
               to="/packages"
-              className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
+              className="bg-red-800 hover:bg-red-900 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Browse Packages
