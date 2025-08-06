@@ -317,7 +317,7 @@ const Packages = () => {
           </p>
           <Link
             to="/cart"
-            className="bg-black text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center"
+              className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
 
           >
             View Your Cart
