@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Link } from 'react-router-dom';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
@@ -20,7 +20,7 @@ const Cart = () => {
             </p>
             <Link
               to="/packages"
-              className="bg-red-800 hover:bg-red-900 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
+              className="bg-red-700 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Browse Packages

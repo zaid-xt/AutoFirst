@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
 
 const Contact = () => {
@@ -276,19 +276,19 @@ const Contact = () => {
          <div className="flex justify-center space-x-8">
   <a
     href="#"
-    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
   >
     <Facebook className="h-8 w-8" />
   </a>
   <a
     href="#"
-    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
   >
     <Instagram className="h-8 w-8" />
   </a>
   <a
     href="#"
-    className="bg-black text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
+    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
   >
     <Twitter className="h-8 w-8" />
   </a>
