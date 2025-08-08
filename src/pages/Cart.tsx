@@ -85,14 +85,14 @@ const Cart = () => {
                         <ul className="space-y-1">
                           {item.features.filter(f => f.included).slice(0, 4).map((feature, index) => (
                             <li key={index} className="flex items-center text-sm">
-                              <CheckCircle className="h-3 w-3 text-blue-600 mr-2 flex-shrink-0" />
+                              <CheckCircle className="h-3 w-3 text-red-600 mr-2 flex-shrink-0" />
                               {feature.feature}
                             </li>
                           ))}
                         </ul>
                       </div>
                       <div className="text-right md:text-left">
-                        <div className="text-2xl font-bold text-blue-800 mb-2">
+                        <div className="text-2xl font-bold text-red-800 mb-2">
                           {item.price}<span className="text-base text-gray-500">{item.period}</span>
                         </div>
                       </div>
@@ -145,7 +145,7 @@ const Cart = () => {
                   <div className="border-t border-gray-200 pt-4 mt-4">
                     <div className="flex justify-between text-lg font-semibold">
                       <span>Total Monthly:</span>
-                      <span className="text-blue-800">R{getTotalPrice()}</span>
+                      <span className="text-red-800">R{getTotalPrice()}</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">
                       Billed monthly • Cancel anytime
@@ -172,15 +172,15 @@ const Cart = () => {
                   <div className="pt-4 mt-6 border-t border-gray-200">
                     <div className="space-y-2 text-xs text-gray-500">
                       <p className="flex items-center">
-                        <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                        <CheckCircle className="h-3 w-3 text-red-500 mr-2" />
                         30-day money-back guarantee
                       </p>
                       <p className="flex items-center">
-                        <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                        <CheckCircle className="h-3 w-3 text-red-500 mr-2" />
                         Cancel or change plan anytime
                       </p>
                       <p className="flex items-center">
-                        <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                        <CheckCircle className="h-3 w-3 text-red-500 mr-2" />
                         24/7 customer support
                       </p>
                     </div>
