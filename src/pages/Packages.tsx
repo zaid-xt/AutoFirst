@@ -30,41 +30,18 @@ const Packages = () => {
       ]
     },
     {
-      id: 'standard',
-      name: "Standard",
-      price: "R349",
-      period: "/month",
-      icon: <Star className="h-8 w-8" />,
-      color: "red",
-      popular: true,
-      responseTime: "30 min",
-      supportLevel: "Priority Support",
-      description: "Enhanced protection with priority services",
-      features: [
-        { feature: "Everything in Basic", included: true },
-        { feature: "Priority Response (30 min)", included: true },
-        { feature: "Advanced Diagnostics", included: true },
-        { feature: "Minor On-Site Repairs", included: true },
-        { feature: "Battery Replacement Service", included: true },
-        { feature: "Emergency Fuel Delivery (10L)", included: true },
-        { feature: "Up to 4 Callouts per Month", included: true },
-        { feature: "100km Towing Distance", included: true },
-        { feature: "24/7 Customer Support", included: true }
-      ]
-    },
-    {
       id: 'premium',
       name: "Premium",
       price: "R549",
       period: "/month",
       icon: <Crown className="h-8 w-8" />,
       color: "red",
-      popular: false,
+      popular: true,
       responseTime: "20 min",
       supportLevel: "VIP Support",
       description: "Comprehensive coverage with premium benefits",
       features: [
-        { feature: "Everything in Standard", included: true },
+        { feature: "Everything in Basic", included: true },
         { feature: "Express Response (20 min)", included: true },
         { feature: "Comprehensive Repairs", included: true },
         { feature: "Alternative Transport", included: true },
@@ -80,24 +57,6 @@ const Packages = () => {
 
   const getColorClasses = (color: string, popular: boolean = false) => {
     const colors = {
-      // blue: {
-      //   bg: popular ? 'bg-blue-600' : 'bg-blue-800',
-      //   text: 'text-blue-600',
-      //   border: 'border-blue-600',
-      //   button: 'bg-blue-600 hover:bg-blue-700'
-      // },
-      // orange: {
-      //   bg: popular ? 'bg-orange-500' : 'bg-orange-600',
-      //   text: 'text-orange-500',
-      //   border: 'border-orange-500',
-      //   button: 'bg-orange-500 hover:bg-orange-600'
-      // },
-      // purple: {
-      //   bg: popular ? 'bg-purple-600' : 'bg-purple-700',
-      //   text: 'text-purple-600',
-      //   border: 'border-purple-600',
-      //   button: 'bg-purple-600 hover:bg-purple-700'
-      // }, 
       red: {
         bg: popular ? 'bg-red-600' : 'bg-red-700',
         text: 'text-red-600',
@@ -125,7 +84,7 @@ const Packages = () => {
       {/* Packages Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {packages.map((pkg, index) => {
               const colors = getColorClasses(pkg.color, pkg.popular);
               return (
@@ -208,7 +167,6 @@ const Packages = () => {
                 <tr>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Features</th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Basic</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 bg-orange-50">Standard</th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Premium</th>
                 </tr>
               </thead>
@@ -216,43 +174,36 @@ const Packages = () => {
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Price</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R199</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">R349</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R549</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Response Time</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">60 min</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">30 min</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">20 min</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Callouts</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">2</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">4</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">Unlimited</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Towing Distance</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">50km</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">100km</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">200km</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">On-Site Repairs</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">Basic</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">Minor</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">Comprehensive</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Alternative Transport</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-500 bg-orange-50">✗</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Accommodation Coverage</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-500 bg-orange-50">✗</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                 </tr>
               </tbody>
@@ -282,7 +233,7 @@ const Packages = () => {
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-4">What happens if I exceed callouts?</h3>
               <p className="text-gray-600">
-                For Basic and Standard packages, additional callouts are charged at R150 per service. 
+                For Basic package, additional callouts are charged at R150 per service. 
                 Premium package includes unlimited callouts.
               </p>
             </div>
@@ -318,7 +269,6 @@ const Packages = () => {
           <Link
             to="/cart"
               className="bg-[#b91c1c] hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
-
           >
             View Your Cart
             <Zap className="ml-2 h-5 w-5" />
