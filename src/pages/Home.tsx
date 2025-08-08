@@ -99,7 +99,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-red-50 to-red-100 hover:shadow-lg transition-all duration-300">
               <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Shield className="h-8 w-8 text-white" />
               </div>
@@ -110,7 +110,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-red-50 to-red-100 hover:shadow-lg transition-all duration-300">
               <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Clock className="h-8 w-8 text-white" />
               </div>
@@ -121,7 +121,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-red-50 to-red-100 hover:shadow-lg transition-all duration-300">
               <div className="bg-red-800 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Users className="h-8 w-8 text-white" />
               </div>
@@ -269,7 +269,7 @@ const Home = () => {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-white' : 'bg-blue-400'
+                    index === currentTestimonial ? 'bg-white' : 'bg-red-400'
                   }`}
                 />
               ))}
