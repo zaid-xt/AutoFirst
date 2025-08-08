@@ -155,8 +155,8 @@ const Cart = () => {
                   <div className="space-y-3 mt-6">
                 
 <Link
-  to="/checkout"  // Changed from "/book"
-  className="block w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors"
+  to="/checkout"
+  className="block w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors"
 >
   Proceed to Checkout
 </Link>
