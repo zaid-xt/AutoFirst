@@ -346,7 +346,7 @@ const BookService = () => {
               </a>
             </div>
 
-            <div className="text-center p-8 bg-green-50 rounded-xl">
+            <div className="text-center p-8 bg-red-50 rounded-xl">
               <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <MessageSquare className="h-8 w-8 text-white" />
               </div>
@@ -363,7 +363,7 @@ const BookService = () => {
               </button>
             </div>
 
-            <div className="text-center p-8 bg-blue-50 rounded-xl">
+            <div className="text-center p-8 bg-red-50 rounded-xl">
               <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <Mail className="h-8 w-8 text-white" />
               </div>
