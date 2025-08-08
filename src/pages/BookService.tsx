@@ -100,7 +100,7 @@ const BookService = () => {
                 </div>
 
                 {/* Personal Information */}
-                <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="bg-red-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <User className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Personal Information</h3>
@@ -161,7 +161,7 @@ const BookService = () => {
                 </div>
 
                 {/* Vehicle Information */}
-                <div className="bg-orange-50 p-6 rounded-xl">
+                <div className="bg-red-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Car className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Vehicle Information</h3>
@@ -235,7 +235,7 @@ const BookService = () => {
                 </div>
 
                 {/* Location and Schedule */}
-                <div className="bg-green-50 p-6 rounded-xl">
+                <div className="bg-red-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <MapPin className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Location & Schedule</h3>
