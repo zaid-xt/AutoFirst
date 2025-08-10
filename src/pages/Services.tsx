@@ -267,7 +267,7 @@ const Services = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Need Our Services?
           </h2>
-          <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Don't let vehicle problems slow you down. Get professional help today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
