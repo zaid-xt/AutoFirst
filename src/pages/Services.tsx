@@ -22,184 +22,185 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Common Vehicle Repairs */}
-            <div className="bg-gradient-to-br from-red-50 to-red-100 p-12 rounded-2xl">
-              <div className="bg-red-800 p-4 rounded-full w-16 h-16 mb-8 flex items-center justify-center">
-                <Wrench className="h-8 w-8 text-white" />
-              </div>
-              
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Common Vehicle Repairs
-              </h2>
-              
-              <p className="text-red-600 mb-8 text-lg leading-relaxed">
-                Comprehensive repair services for all makes and models, performed by certified technicians 
-                using state-of-the-art equipment and genuine parts.
-              </p>
+           {/* Common Vehicle Repairs */}
+<div className="bg-gradient-to-br from-red-50 to-red-100 p-12 rounded-2xl">
+  <div className="bg-red-600 p-4 rounded-full w-16 h-16 mb-8 flex items-center justify-center">
+    <Wrench className="h-8 w-8 text-white" />
+  </div>
+  
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+    Common Vehicle Repairs
+  </h2>
+  
+  <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+    Comprehensive repair services for all makes and models, performed by certified technicians 
+    using state-of-the-art equipment and genuine parts.
+  </p>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Complete engine diagnostics and repair</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Brake system inspection and maintenance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Electrical system troubleshooting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Transmission services and repairs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Air conditioning and heating systems</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Suspension and steering components</span>
-                  </li>
-                </ul>
-              </div>
+  <div className="mb-8">
+    <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
+    <ul className="space-y-3">
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Complete engine diagnostics and repair</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Brake system inspection and maintenance</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Electrical system troubleshooting</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Transmission services and repairs</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Air conditioning and heating systems</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Suspension and steering components</span>
+      </li>
+    </ul>
+  </div>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">How Clients Qualify:</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Vehicle must be roadworthy and accessible</li>
-                  <li>• Service area coverage (major cities and highways)</li>
-                  <li>• Valid identification and vehicle registration</li>
-                  <li>• Pre-authorization for estimated repair costs</li>
-                </ul>
-              </div>
+  <div className="mb-8">
+    <h3 className="text-xl font-semibold text-gray-900 mb-4">How Clients Qualify:</h3>
+    <ul className="space-y-2 text-gray-700">
+      <li>• Vehicle must be roadworthy and accessible</li>
+      <li>• Service area coverage (major cities and highways)</li>
+      <li>• Valid identification and vehicle registration</li>
+      <li>• Pre-authorization for estimated repair costs</li>
+    </ul>
+  </div>
 
-              <div className="bg-white p-6 rounded-xl mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Step-by-Step Process:</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">1</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Apply</h4>
-                      <p className="text-gray-600">Contact us via phone, web, or WhatsApp with vehicle details</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">2</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Review</h4>
-                      <p className="text-gray-600">Initial assessment and quote provided within 30 minutes</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">3</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Assistance</h4>
-                      <p className="text-gray-600">Certified technician dispatched to your location</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">4</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Resolution</h4>
-                      <p className="text-gray-600">Professional repair completed with warranty included</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div className="bg-white p-6 rounded-xl">
+    <h3 className="text-xl font-semibold text-gray-900 mb-6">Step-by-Step Process:</h3>
+    <div className="space-y-4">
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">1</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Apply</h4>
+          <p className="text-gray-600">Contact us via phone, web, or WhatsApp with vehicle details</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">2</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Review</h4>
+          <p className="text-gray-600">Initial assessment and quote provided within 30 minutes</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">3</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Assistance</h4>
+          <p className="text-gray-600">Certified technician dispatched to your location</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">4</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Resolution</h4>
+          <p className="text-gray-600">Professional repair completed with warranty included</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            {/* Emergency Mechanical Breakdowns */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-12 rounded-2xl">
-              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mb-8 flex items-center justify-center">
-                <Zap className="h-8 w-8 text-white" />
-              </div>
-              
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Emergency Mechanical Breakdowns
-              </h2>
-              
-              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                24/7 emergency response service for when you're stranded. Our rapid response team 
-                gets you back on the road quickly and safely.
-              </p>
+{/* Emergency Mechanical Breakdowns */}
+<div className="bg-gradient-to-br from-red-50 to-red-100 p-12 rounded-2xl">
+  <div className="bg-red-600 p-4 rounded-full w-16 h-16 mb-8 flex items-center justify-center">
+    <Zap className="h-8 w-8 text-white" />
+  </div>
+  
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+    Emergency Mechanical Breakdowns
+  </h2>
+  
+  <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+    24/7 emergency response service for when you're stranded. Our rapid response team 
+    gets you back on the road quickly and safely.
+  </p>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">24/7 emergency callout service</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">On-site diagnostic and troubleshooting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Jump-start and battery replacement</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Flat tire repair and replacement</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Towing and recovery services</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Emergency fuel delivery</span>
-                  </li>
-                </ul>
-              </div>
+  <div className="mb-8">
+    <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
+    <ul className="space-y-3">
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">24/7 emergency callout service</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">On-site diagnostic and troubleshooting</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Jump-start and battery replacement</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Flat tire repair and replacement</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Towing and recovery services</span>
+      </li>
+      <li className="flex items-start">
+        <CheckCircle className="h-5 w-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+        <span className="text-gray-700">Emergency fuel delivery</span>
+      </li>
+    </ul>
+  </div>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">How Clients Qualify:</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Active subscription or pay-per-service option</li>
-                  <li>• Location within service coverage area</li>
-                  <li>• Safe and accessible breakdown location</li>
-                  <li>• Valid contact information for dispatch</li>
-                </ul>
-              </div>
+  <div className="mb-8">
+    <h3 className="text-xl font-semibold text-gray-900 mb-4">How Clients Qualify:</h3>
+    <ul className="space-y-2 text-gray-700">
+      <li>• Active subscription or pay-per-service option</li>
+      <li>• Location within service coverage area</li>
+      <li>• Safe and accessible breakdown location</li>
+      <li>• Valid contact information for dispatch</li>
+    </ul>
+  </div>
 
-              <div className="bg-white p-6 rounded-xl mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Step-by-Step Process:</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">1</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Apply</h4>
-                      <p className="text-gray-600">Call emergency hotline or use mobile app to request help</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">2</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Review</h4>
-                      <p className="text-gray-600">Location confirmed and nearest technician dispatched</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">3</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Assistance</h4>
-                      <p className="text-gray-600">Emergency technician arrives within promised timeframe</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">4</div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Resolution</h4>
-                      <p className="text-gray-600">Issue resolved on-site or vehicle safely towed to garage</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div className="bg-white p-6 rounded-xl">
+    <h3 className="text-xl font-semibold text-gray-900 mb-6">Step-by-Step Process:</h3>
+    <div className="space-y-4">
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">1</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Apply</h4>
+          <p className="text-gray-600">Call emergency hotline or use mobile app to request help</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">2</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Review</h4>
+          <p className="text-gray-600">Location confirmed and nearest technician dispatched</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">3</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Assistance</h4>
+          <p className="text-gray-600">Emergency technician arrives within promised timeframe</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-4 flex-shrink-0">4</div>
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Resolution</h4>
+          <p className="text-gray-600">Issue resolved on-site or vehicle safely towed to garage</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>
@@ -266,7 +267,7 @@ const Services = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Need Our Services?
           </h2>
-          <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Don't let vehicle problems slow you down. Get professional help today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

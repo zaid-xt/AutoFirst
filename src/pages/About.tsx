@@ -99,7 +99,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -152,7 +152,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">
@@ -169,19 +169,19 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-5xl font-bold text-orange-500 mb-2">50,000+</div>
-              <p className="text-blue-200 text-lg">Customers Served</p>
+              <p className="text-white text-lg">Customers Served</p>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-orange-500 mb-2">99.5%</div>
-              <p className="text-blue-200 text-lg">Satisfaction Rate</p>
+              <p className="text-white text-lg">Satisfaction Rate</p>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-orange-500 mb-2">24/7</div>
-              <p className="text-blue-200 text-lg">Service Availability</p>
+              <p className="text-white text-lg">Service Availability</p>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-orange-500 mb-2">15</div>
-              <p className="text-blue-200 text-lg">Years Experience</p>
+              <p className="text-white text-lg">Years Experience</p>
             </div>
           </div>
         </div>
