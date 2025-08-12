@@ -11,19 +11,19 @@ const Home = () => {
       name: "Sarah Johnson",
       rating: 5,
       text: "Auto First saved my day! My car broke down on the highway and they had me back on the road within an hour. Professional and reliable service.",
-      location: "Johannesburg"
+      // location: "Johannesburg"
     },
     {
       name: "Mike Peters",
       rating: 5,
       text: "Excellent service and fair pricing. The technician was knowledgeable and explained everything clearly. Highly recommend!",
-      location: "Cape Town"
+      // location: "Cape Town"
     },
     {
       name: "Lisa Williams",
       rating: 5,
-      text: "24/7 availability is a game-changer. Had an emergency at midnight and they were there promptly. Outstanding customer service!",
-      location: "Durban"
+      text: "24/7 availability is a game-changer. Had an emergency and they were there promptly. Outstanding customer service!",
+      // location: "Durban"
     }
   ];
 
@@ -91,7 +91,7 @@ const Home = () => {
               Why Choose Auto First?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              With over a decade of experience in automotive services, Auto First Mechanical Aid 
+              With years of experience in automotive services, Auto First Mechanical Aid 
               has established itself as South Africa's premier roadside assistance provider. 
               We combine cutting-edge technology with experienced technicians to deliver 
               unmatched service quality.

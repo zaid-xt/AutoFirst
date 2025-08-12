@@ -8,53 +8,88 @@ const Packages = () => {
 
   const packages = [
     {
-      id: 'platinum',
-      name: "Platinum",
-      price: "R699",
+      id: 'gold',
+      name: "Gold",
+      price: "R999",
       period: "/month",
       icon: <Shield className="h-8 w-8" />,
       color: "red",
       popular: false,
-      responseTime: "60 min",
+      // responseTime: "60 min",
       supportLevel: "Standard Support",
       description: "Comprehensive coverage for essential vehicle components",
       features: [
-        { feature: "Roadside towing", included: true },
-        { feature: "Minor Vehicle Maintenance", included: true },
-        { feature: "Tire replacements, alignment, balancing and inflation", included: true },
-        { feature: "Disc Brakes (rotors)", included: true },
-        { feature: "Break-pads", included: true },
-        { feature: "Battery replacement or jump-starting", included: true },
-        { feature: "Belt and Chains", included: true },
-        { feature: "CV Joints (inner and outer)", included: true },
-        { feature: "Wheel Bearings", included: true },
-        { feature: "Clutch plate", included: true },
-        { feature: "General diagnostic and inspection", included: true },
-        { feature: "Shock absorber", included: true },
-        { feature: "Total Monthly Payout: R13,000.00", included: true }
+        { feature: "Minor Servicing" },
+        { feature: "Major Servicing" },
+        { feature: "Towing Services" },
+        { feature: "Tire Care and Replacements" },
+        { feature: "Shock Absorbers" },
+        { feature: "Clutch Plates" },
+        { feature: "Break Disks" },
+        { feature: "Brake Pads" },
+        { feature: "Battery Replacements" },
+        { feature: "CV joints" },
+
+        { feature: "Wheel Bearings" },
+        { feature: "Alternator" },
+        { feature: "Sealing Gaskets" },
+        { feature: "Fuel Pump" },
+        { feature: "Oil Pump" },
+        { feature: "Starter Motors" },
+        { feature: "General Diagnostics and Inspection" },
       ]
     },
     {
-      id: 'golden',
-      name: "Golden",
-      price: "R999",
+      id: 'moderate',
+      name: "Moderate",
+      price: "R699",
       period: "/month",
-      icon: <Crown className="h-8 w-8" />,
+      icon: <Shield className="h-8 w-8" />,
       color: "red",
       popular: true,
-      responseTime: "30 min",
+      // responseTime: "60 min",
+      supportLevel: "Standard Support",
+      description: "Comprehensive coverage for essential vehicle components",
+      features: [
+        { feature: "Minor Servicing", included: true },
+        { feature: "Major Servicing" },
+        { feature: "Towing Services" },
+        { feature: "Tire Care and Replacements" },
+        { feature: "Shock Absorbers" },
+        { feature: "Disc Brakes" },
+        { feature: "Break Disks" },
+        { feature: "CV Joint" },
+        { feature: "Battery Replacements" },
+        { feature: "Wheel Bearings" },
+
+        { feature: "Sealing Gaskets" },
+        { feature: "Starter Motor" },
+        { feature: "Fuel Pump" },
+        { feature: "General Diagnostics and Inspection" },
+      ]
+    },
+    {
+      id: 'basic',
+      name: "Basic",
+      price: "R499",
+      period: "/month",
+      // icon: <Crown className="h-8 w-8" />,
+      icon: <Shield className="h-8 w-8" />,
+
+      color: "red",
+      popular: false,
+      // responseTime: "30 min",
       supportLevel: "Premium Support",
       description: "Premium coverage with extensive component protection",
       features: [
-        { feature: "Everything in Platinum", included: true },
-        { feature: "Major Vehicle Maintenance", included: true },
-        { feature: "10L monthly re-fuel", included: true },
-        { feature: "Shock absorbers", included: true },
-        { feature: "Alternator", included: true },
-        { feature: "Sealing Gaskets", included: true },
-        { feature: "Fuel Pumps", included: true },
-        { feature: "Oil Pumps", included: true },
-        { feature: "Total Monthly Payout: R20,000.00", included: true }
+        { feature: "Minor Servicing" },
+        { feature: "Tire Care and Replacements" },
+        { feature: "Brake Pads" },
+        { feature: "Disc Brakes" },
+        { feature: "Battery Replacements" },
+        { feature: "Wheel Bearings" },
+        { feature: "General Diagnostics and Inspection" },
+
       ]
     }
   ];
@@ -88,7 +123,7 @@ const Packages = () => {
       {/* Packages Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {packages.map((pkg, index) => {
               const colors = getColorClasses(pkg.color, pkg.popular);
               return (
@@ -172,45 +207,59 @@ const Packages = () => {
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Features</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Platinum</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 bg-orange-50">Golden</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                    Golden
+                    </th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 bg-orange-50">
+                    Moderate
+                  </th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                    Basic
+                  </th>
+
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Price</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900">R699</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">R999</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">R999</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">R699</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">R499</td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Payout Limit</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R13,000</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">R20,000</td>
-                </tr>
+                </tr> */}
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Roadside Towing</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Major Vehicle Maintenance</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Fuel (10L)</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Alternator Coverage</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✗</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Fuel Pumps Coverage</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
+                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
               </tbody>
             </table>

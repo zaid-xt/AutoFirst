@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Shield, Award, Users, Heart } from 'lucide-react';
 
 const About = () => {
@@ -11,7 +11,8 @@ const About = () => {
             About Auto First
           </h1>
           <p className="text-xl md:text-2xl text-center max-w-3xl mx-auto leading-relaxed">
-            Dedicated to keeping South Africa moving with reliable, professional automotive services since 2010
+            Dedicated to keeping South Africa moving with reliable, 
+            professional automotive services 
           </p>
         </div>
       </section>
@@ -73,17 +74,23 @@ const About = () => {
                 Our Story
               </h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
-                <p>
+                {/* <p>
                   Auto First Mechanical Aid was founded in 2010 with a simple yet powerful vision: 
                   to transform the roadside assistance industry in South Africa. Our founder, 
                   Michael Thompson, a veteran automotive engineer with over 20 years of experience, 
                   recognized the gap in reliable, professional emergency vehicle services.
                 </p>
-                
+                 */}
+                <p>
+                  Auto First Mechanical Aid was founded by 
+                  Michael Thompson, a veteran automotive engineer with over 20 years of experience. 
+                  He recognized the gap in reliable, professional emergency vehicle services.
+                </p>
+
                 <p>
                   What started as a small operation with just two service vehicles has grown into 
                   South Africa's premier mechanical aid service, operating across all major cities 
-                  and highways. We've assisted over 50,000 customers and maintained a 99.5% 
+                  and highways. We've assisted thousands of customers and maintained a 99.5% 
                   customer satisfaction rating.
                 </p>
                 
