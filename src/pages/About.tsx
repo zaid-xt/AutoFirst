@@ -82,24 +82,22 @@ const About = () => {
                 </p>
                  */}
                 <p>
-                  Auto First Mechanical Aid was founded by 
-                  Michael Thompson, a veteran automotive engineer with over 20 years of experience. 
-                  He recognized the gap in reliable, professional emergency vehicle services.
+                 Auto-First began as a passionate side hustle that I operated from my garage, driven by a vision to provide affordable vehicle protection to South African motorists. What started as a modest operation has grown into a thriving business over our five-year journey. While we're proud to have assisted thousands of customers with their mechanical needs, we remain focused on our 99.5% customer satisfaction rate as we work toward our goal of transforming this garage-born business into a major industry player. Every day, we're building on those humble beginnings to create a company that maintains its personal touch while expanding our reach and services.
                 </p>
 
-                <p>
+                {/* <p>
                   What started as a small operation with just two service vehicles has grown into 
                   South Africa's premier mechanical aid service, operating across all major cities 
                   and highways. We've assisted thousands of customers and maintained a 99.5% 
                   customer satisfaction rating.
-                </p>
+                </p> */}
                 
-                <p>
+                {/* <p>
                   Today, Auto First continues to innovate, incorporating cutting-edge diagnostic 
                   technology and expanding our service offerings to meet the evolving needs of 
                   modern drivers. Our commitment remains unchanged: delivering exceptional service 
                   when you need it most.
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

@@ -28,9 +28,9 @@ const Packages = () => {
         { feature: "Break Disks" },
         { feature: "Brake Pads" },
         { feature: "Battery Replacements" },
-        { feature: "CV joints" },
+        { feature: "CV Joint Replacements" },
 
-        { feature: "Wheel Bearings" },
+        { feature: "Wheel Bearing" },
         { feature: "Alternator" },
         { feature: "Sealing Gaskets" },
         { feature: "Fuel Pump" },
@@ -47,7 +47,6 @@ const Packages = () => {
       icon: <Shield className="h-8 w-8" />,
       color: "red",
       popular: true,
-      // responseTime: "60 min",
       supportLevel: "Standard Support",
       description: "Comprehensive coverage for essential vehicle components",
       features: [
@@ -57,11 +56,10 @@ const Packages = () => {
         { feature: "Tire Care and Replacements" },
         { feature: "Shock Absorbers" },
         { feature: "Disc Brakes" },
-        { feature: "Break Disks" },
-        { feature: "CV Joint" },
+        { feature: "Break Pads" },
+        { feature: "CV Joints" },
         { feature: "Battery Replacements" },
         { feature: "Wheel Bearings" },
-
         { feature: "Sealing Gaskets" },
         { feature: "Starter Motor" },
         { feature: "Fuel Pump" },
@@ -73,12 +71,9 @@ const Packages = () => {
       name: "Basic",
       price: "R499",
       period: "/month",
-      // icon: <Crown className="h-8 w-8" />,
       icon: <Shield className="h-8 w-8" />,
-
       color: "red",
       popular: false,
-      // responseTime: "30 min",
       supportLevel: "Premium Support",
       description: "Premium coverage with extensive component protection",
       features: [
@@ -97,7 +92,7 @@ const Packages = () => {
   const getColorClasses = (color: string, popular: boolean = false) => {
     const colors = {
       red: {
-        bg: popular ? 'bg-red-600' : 'bg-red-700',
+        bg: popular ? 'bg-red-600' : 'bg-red-600',
         text: 'text-red-600',
         border: 'border-red-600',
         button: 'bg-red-600 hover:bg-red-700'
@@ -120,10 +115,10 @@ const Packages = () => {
         </div>
       </section>
 
-      {/* Packages Grid */}
+      {/* Packages Grid - Modified width here */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full"> {/* Removed max-w-4xl constraint */}
             {packages.map((pkg, index) => {
               const colors = getColorClasses(pkg.color, pkg.popular);
               return (
@@ -210,7 +205,7 @@ const Packages = () => {
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
                     Golden
                     </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 bg-orange-50">
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 bg-red-50">
                     Moderate
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
@@ -223,7 +218,7 @@ const Packages = () => {
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Price</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R999</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-orange-50">R699</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900 bg-red-50">R699</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R499</td>
                 </tr>
                 {/* <tr>
@@ -233,32 +228,32 @@ const Packages = () => {
                 </tr> */}
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Roadside Towing</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 bg-red-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Major Vehicle Maintenance</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 bg-red-50">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Fuel (10L)</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 bg-red-50">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Alternator Coverage</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✗</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 bg-red-50">✗</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Fuel Pumps Coverage</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600">✓</td>
-                  <td className="px-6 py-4 text-center text-sm text-green-600 bg-orange-50">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">✓</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 bg-red-50">✓</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-500">✗</td>
                 </tr>
               </tbody>
