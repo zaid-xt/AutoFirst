@@ -173,19 +173,19 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-bold text-orange-500 mb-2">50,000+</div>
+              <div className="text-5xl font-bold text-red-500 mb-2">50,000</div>
               <p className="text-white text-lg">Customers Served</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-orange-500 mb-2">99.5%</div>
+              <div className="text-5xl font-bold text-red-500 mb-2">99.5%</div>
               <p className="text-white text-lg">Satisfaction Rate</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-orange-500 mb-2">24/7</div>
+              <div className="text-5xl font-bold text-red-500 mb-2">24/7</div>
               <p className="text-white text-lg">Service Availability</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-orange-500 mb-2">15</div>
+              <div className="text-5xl font-bold text-red-500 mb-2">5</div>
               <p className="text-white text-lg">Years Experience</p>
             </div>
           </div>
