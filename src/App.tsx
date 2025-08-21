@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import CheckoutForm from "./pages/CheckoutForm";
 //import Confirmation from "./pages/confirmation";
 import { CartProvider } from "./contexts/CartContext";
+import ThankYou from "./pages/ThankYou";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/packages" element={<Packages />} />
               <Route path="/book" element={<BookService />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckoutForm />} />
               {/* <Route path="/confirmation" element={<Confirmation />} /> */}
