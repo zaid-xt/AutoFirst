@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import CheckoutForm from "./pages/CheckoutForm";
 //import Confirmation from "./pages/confirmation";
 import { CartProvider } from "./contexts/CartContext";
+import Confirmation from "./pages/confirmation";
 import ThankYou from "./pages/ThankYou";
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
               <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckoutForm />} />
+              <Route path="/Confirmation" element={<Confirmation />} />
+
               {/* <Route path="/confirmation" element={<Confirmation />} /> */}
             
             </Routes>
