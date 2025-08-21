@@ -10,7 +10,7 @@ const Packages = () => {
     {
       id: 'gold',
       name: "Gold",
-      price: "R5",
+      price: "R999",
       period: "/month",
       icon: <Shield className="h-8 w-8" />,
       color: "red",
@@ -217,7 +217,7 @@ const Packages = () => {
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">Monthly Price</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-900">R5</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">R999</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900 bg-red-50">R699</td>
                   <td className="px-6 py-4 text-center text-sm text-gray-900">R499</td>
                 </tr>

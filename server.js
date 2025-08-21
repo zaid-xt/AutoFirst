@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const PORT = 5000;
@@ -11,11 +13,13 @@ app.use(cors({
 }));
 
 // ✅ PayFast Live Merchant Details
-const PAYFAST_MERCHANT_ID = "25197615"; // Live Merchant ID
-const PAYFAST_MERCHANT_KEY = "k4lgklgzt329m"; // Live Merchant Key
+const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
+const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY;
+const PAYFAST_PASSPHRASE = process.env.PAYFAST_PASSPHRASE;
+const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "live";
 const PAYFAST_RETURN_URL = "http://localhost:5173/confirmation";
 const PAYFAST_CANCEL_URL = "http://localhost:5173/cart";
-const PAYFAST_NOTIFY_URL = "http://localhost:5000/api/payfast/notify";
+const PAYFAST_NOTIFY_URL = "http://localhost:5173/api/payfast/notify";
 
 // Helper: Generate PayFast query string
 const generatePayFastForm = (data) => {
