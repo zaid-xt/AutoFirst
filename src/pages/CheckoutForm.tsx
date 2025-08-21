@@ -32,25 +32,45 @@ const CheckoutForm = () => {
 
   // ✅ Validate required fields
   const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.firstName) newErrors.firstName = "First name is required";
-    if (!formData.lastName) newErrors.lastName = "Last name is required";
-    if (!formData.idNumber) newErrors.idNumber = "ID number is required";
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-    }
-    if (!formData.phone) newErrors.phone = "Phone number is required";
-    if (!formData.address) newErrors.address = "Address is required";
-    if (!formData.city) newErrors.city = "City is required";
-    if (!formData.postalCode) newErrors.postalCode = "Postal code is required";
-    if (!formData.agreeToTerms)
-      newErrors.agreeToTerms = "You must agree to the terms";
+  const newErrors: Record<string, string> = {};
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  if (!formData.firstName) newErrors.firstName = "First name is required";
+  if (!formData.lastName) newErrors.lastName = "Last name is required";
+
+  if (!formData.idNumber) {
+    newErrors.idNumber = "ID number is required";
+  } else if (!/^\d{13}$/.test(formData.idNumber)) {
+    newErrors.idNumber = "ID number must be exactly 13 digits";
+  }
+
+  if (!formData.email) {
+    newErrors.email = "Email is required";
+  } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+    newErrors.email = "Email is invalid";
+  }
+
+  if (!formData.phone) {
+    newErrors.phone = "Phone number is required";
+  } else if (!/^\d{10}$/.test(formData.phone)) {
+    newErrors.phone = "Phone number must be exactly 10 digits";
+  }
+
+  if (!formData.address) newErrors.address = "Address is required";
+
+  if (!formData.city) newErrors.city = "City is required";
+
+  if (!formData.postalCode) {
+    newErrors.postalCode = "Postal code is required";
+  } else if (!/^\d{4}$/.test(formData.postalCode)) {
+    newErrors.postalCode = "Postal code must be exactly 4 digits";
+  }
+
+  if (!formData.agreeToTerms)
+    newErrors.agreeToTerms = "You must agree to the terms";
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
   // ✅ Handle PayFast recurring subscription
   const handleSubmit = async (e: React.FormEvent) => {
@@ -115,29 +135,28 @@ const CheckoutForm = () => {
                 <h2 className="text-xl font-bold mb-6">Personal Information</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {["firstName", "lastName", "idNumber", "email", "phone"].map(
-                    (field) => (
-                      <div key={field}>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          {field.charAt(0).toUpperCase() + field.slice(1)} *
-                        </label>
-                        <input
-                          type={field === "email" ? "email" : "text"}
-                          name={field}
-                          value={formData[field as keyof typeof formData]}
-                          onChange={handleChange}
-                          className={`w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 ${
-                            errors[field] ? "border-red-500" : "border-gray-300"
-                          }`}
-                        />
-                        {errors[field] && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors[field]}
-                          </p>
-                        )}
-                      </div>
-                    )
-                  )}
+                  {["firstName", "lastName", "idNumber", "email", "phone"].map((field) => (
+                <div key={field}>
+                <input
+                  type={field === "email" ? "email" : "text"}
+                  name={field}
+                  placeholder={
+                  field
+                  .replace(/([A-Z])/g, " $1") // Add space before capitals
+                  .replace(/^./, (str) => str.toUpperCase()) + " *"
+                    }
+                  value={formData[field as keyof typeof formData]}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 ${
+                  errors[field] ? "border-red-500" : "border-gray-300"
+                  }`}
+                  />
+                  {errors[field] && (
+                  <p className="mt-1 text-sm text-red-600">{errors[field]}</p>
+                )}
+                </div>
+              ))}
+
                 </div>
 
                 <h2 className="text-xl font-bold mb-6">Address Information</h2>
@@ -228,7 +247,7 @@ const CheckoutForm = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+                  className="w-full bg-red-600 hover:red-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
                 >
                   {loading ? "Processing..." : "Start Subscription"}
                 </button>
