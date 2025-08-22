@@ -107,84 +107,111 @@ const Contact = () => {
             <div className="bg-gray-50 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
               
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      required
-                    />
-                  </div>
-                </div>
+              <form
+                action="https://api.web3forms.com/submit/"
+                method="POST"
+                className="space-y-6"
+                target="_self"
+          >
+            {/* Web3Forms Access Key */}
+            <input type="hidden" name="access_key" value="e4e0d434-3028-497f-866a-69ab847863f0" />
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    required
-                  />
-                </div>
+            {/* Redirect to React Thank You page */}
+            <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  />
-                </div>
+            {/* First Name */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              First Name *
+            </label>
+            <input
+              type="text"
+              name="first_name"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              required
+              />
+            </div>
+            <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Last Name *
+            </label>
+            <input
+            type="text"
+            name="last_name"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            required
+            />
+          </div>
+          </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Subject *
-                  </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" required>
-                    <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="service">Service Question</option>
-                    <option value="packages">Package Information</option>
-                    <option value="complaint">Complaint</option>
-                    <option value="compliment">Compliment</option>
-                  </select>
-                </div>
+          {/* Email */}
+          <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+           Email Address *
+          </label>
+          <input
+            type="email"
+            name="email"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            required
+            />
+          </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Tell us how we can help you..."
-                    required
-                  />
-                </div>
+        {/* Phone */}
+          <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Phone Number
+          </label>
+          <input
+          type="tel"
+          name="phone"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            />
+          </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-red-800 hover:bg-red-900 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 hover:shadow-lg"
-                >
-                  Send Message
-                </button>
-              </form>
+  {/* Subject */}
+  <div>
+  <label className="block text-sm font-semibold text-gray-700 mb-2">
+    Subject *
+  </label>
+  <select
+  name="subject"
+  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white text-gray-900"
+  required
+>
+  <option value="">Select a subject</option>
+  <option value="General Inquiry">General Inquiry</option>
+  <option value="Service Question">Service Question</option>
+  <option value="Package Information">Package Information</option>
+  <option value="Complaint">Complaint</option>
+  <option value="Compliment">Compliment</option>
+</select>
+</div>
+
+  {/* Message */}
+  <div>
+    <label className="block text-sm font-semibold text-gray-700 mb-2">
+      Message *
+    </label>
+    <textarea
+      name="message"
+      rows={5}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+      placeholder="Tell us how we can help you..."
+      required
+    />
+  </div>
+
+  {/* Submit Button */}
+  <button
+    type="submit"
+    className="w-full bg-red-800 hover:bg-red-900 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 hover:shadow-lg"
+  >
+    Send Message
+  </button>
+</form>
+
             </div>
           </div>
         </div>
