@@ -1,5 +1,12 @@
 import React from 'react';
 import autoFirstLogo from '../images/auto first.png';
+// ✅ Import Payment Logos
+import PayFastLogo from "../images/assets/Payfast logo.svg";
+import MasterCardLogo from "../images/assets/Master Card.svg";
+import VisaLogo from "../images/assets/sid.svg";
+import SecureIDLogo from "../images/assets/SCode_logoMark_grp.svg";
+import InstantEft from "../images/assets/instantEFT_hi-Res_logo_svg.svg";
+import Paygate from "../images/assets/PayGate-3D-Secure-Logo-Verified-by-Visa.png";
 import { Link } from 'react-router-dom';
 import {
   Phone,
@@ -113,12 +120,48 @@ const Footer = () => {
             </div>
           </div>
         </div>
+    {/* Footer Bottom */}
+        <div className="border-t border-gray-700 mt-10 pt-8 text-center">
+          <div className="flex flex-col items-center space-y-4">
+            {/* Payment Logos */}
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              <img
+                src={PayFastLogo}
+                alt="PayFast"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+              <img
+                src={VisaLogo}
+                alt="Visa"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+              <img
+                src={MasterCardLogo}
+                alt="MasterCard"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+              <img
+                src={SecureIDLogo}
+                alt="Secure ID"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+              <img
+                src={InstantEft}
+                alt="Instant EFT"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+              <img
+                src={Paygate}
+                alt="PayGate"
+                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
+              />
+            </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2025 Auto First Mechanical Aid. All rights reserved.
-          </p>
+            {/* Copyright */}
+            <p className="text-gray-300 text-sm">
+              © 2025 Auto First Mechanical Aid. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

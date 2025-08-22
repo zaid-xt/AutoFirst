@@ -1,8 +1,15 @@
-// src/pages/CheckoutForm.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
+
+// ✅ Import Payment Logos
+import PayFastLogo from "../images/assets/Payfast logo.svg";
+import MasterCardLogo from "../images/assets/Master Card.svg";
+import VisaLogo from "../images/assets/sid.svg";
+import SecureIDLogo from "../images/assets/SCode_logoMark_grp.svg";
+import InstantEft from "../images/assets/instantEFT_hi-Res_logo_svg.svg";
+import Paygate from "../images/assets/PayGate-3D-Secure-Logo-Verified-by-Visa.png";
 
 const CheckoutForm = () => {
   const { items, getTotalPrice } = useCart();
@@ -32,45 +39,45 @@ const CheckoutForm = () => {
 
   // ✅ Validate required fields
   const validateForm = () => {
-  const newErrors: Record<string, string> = {};
+    const newErrors: Record<string, string> = {};
 
-  if (!formData.firstName) newErrors.firstName = "First name is required";
-  if (!formData.lastName) newErrors.lastName = "Last name is required";
+    if (!formData.firstName) newErrors.firstName = "First name is required";
+    if (!formData.lastName) newErrors.lastName = "Last name is required";
 
-  if (!formData.idNumber) {
-    newErrors.idNumber = "ID number is required";
-  } else if (!/^\d{13}$/.test(formData.idNumber)) {
-    newErrors.idNumber = "ID number must be exactly 13 digits";
-  }
+    if (!formData.idNumber) {
+      newErrors.idNumber = "ID number is required";
+    } else if (!/^\d{13}$/.test(formData.idNumber)) {
+      newErrors.idNumber = "ID number must be exactly 13 digits";
+    }
 
-  if (!formData.email) {
-    newErrors.email = "Email is required";
-  } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-    newErrors.email = "Email is invalid";
-  }
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
 
-  if (!formData.phone) {
-    newErrors.phone = "Phone number is required";
-  } else if (!/^\d{10}$/.test(formData.phone)) {
-    newErrors.phone = "Phone number must be exactly 10 digits";
-  }
+    if (!formData.phone) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
+    }
 
-  if (!formData.address) newErrors.address = "Address is required";
+    if (!formData.address) newErrors.address = "Address is required";
 
-  if (!formData.city) newErrors.city = "City is required";
+    if (!formData.city) newErrors.city = "City is required";
 
-  if (!formData.postalCode) {
-    newErrors.postalCode = "Postal code is required";
-  } else if (!/^\d{4}$/.test(formData.postalCode)) {
-    newErrors.postalCode = "Postal code must be exactly 4 digits";
-  }
+    if (!formData.postalCode) {
+      newErrors.postalCode = "Postal code is required";
+    } else if (!/^\d{4}$/.test(formData.postalCode)) {
+      newErrors.postalCode = "Postal code must be exactly 4 digits";
+    }
 
-  if (!formData.agreeToTerms)
-    newErrors.agreeToTerms = "You must agree to the terms";
+    if (!formData.agreeToTerms)
+      newErrors.agreeToTerms = "You must agree to the terms";
 
-  setErrors(newErrors);
-  return Object.keys(newErrors).length === 0;
-};
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // ✅ Handle PayFast recurring subscription
   const handleSubmit = async (e: React.FormEvent) => {
@@ -91,6 +98,7 @@ const CheckoutForm = () => {
               lastName: formData.lastName,
               email: formData.email,
             },
+            isSubscription: true,
           }),
         }
       );
@@ -98,7 +106,6 @@ const CheckoutForm = () => {
       const data = await response.json();
 
       if (data.url) {
-        // ✅ Redirect user to PayFast for recurring billing
         window.location.href = data.url;
       } else {
         alert("Failed to create subscription. Please try again.");
@@ -135,28 +142,31 @@ const CheckoutForm = () => {
                 <h2 className="text-xl font-bold mb-6">Personal Information</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {["firstName", "lastName", "idNumber", "email", "phone"].map((field) => (
-                <div key={field}>
-                <input
-                  type={field === "email" ? "email" : "text"}
-                  name={field}
-                  placeholder={
-                  field
-                  .replace(/([A-Z])/g, " $1") // Add space before capitals
-                  .replace(/^./, (str) => str.toUpperCase()) + " *"
-                    }
-                  value={formData[field as keyof typeof formData]}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 ${
-                  errors[field] ? "border-red-500" : "border-gray-300"
-                  }`}
-                  />
-                  {errors[field] && (
-                  <p className="mt-1 text-sm text-red-600">{errors[field]}</p>
-                )}
-                </div>
-              ))}
-
+                  {["firstName", "lastName", "idNumber", "email", "phone"].map(
+                    (field) => (
+                      <div key={field}>
+                        <input
+                          type={field === "email" ? "email" : "text"}
+                          name={field}
+                          placeholder={
+                            field
+                              .replace(/([A-Z])/g, " $1")
+                              .replace(/^./, (str) => str.toUpperCase()) + " *"
+                          }
+                          value={formData[field as keyof typeof formData]}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 ${
+                            errors[field] ? "border-red-500" : "border-gray-300"
+                          }`}
+                        />
+                        {errors[field] && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors[field]}
+                          </p>
+                        )}
+                      </div>
+                    )
+                  )}
                 </div>
 
                 <h2 className="text-xl font-bold mb-6">Address Information</h2>
@@ -247,10 +257,28 @@ const CheckoutForm = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-red-600 hover:red-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
                 >
                   {loading ? "Processing..." : "Start Subscription"}
                 </button>
+
+                {/* ✅ Payment Logos */}
+                <div className="flex flex-wrap justify-center items-center gap-6 mt-8">
+                  <img src={PayFastLogo} alt="PayFast" className="h-8" />
+                  <img src={VisaLogo} alt="Visa" className="h-8" />
+                  <img src={MasterCardLogo} alt="MasterCard" className="h-8" />
+                  <img src={SecureIDLogo} alt="Secure ID" className="h-8" />
+                  <img src={InstantEft} alt="Instant EFT" className="h-8" />
+                  <img src={Paygate} alt="PayGate" className="h-8" />
+                </div>
+
+                {/* ✅ Compliance Notice */}
+                <p className="text-center text-xs text-gray-500 mt-4">
+                  Payments are processed securely via{" "}
+                  <span className="font-semibold">PayFast</span>. We do not store
+                  your credit card details. All transactions are encrypted and
+                  3D Secure compliant.
+                </p>
               </form>
             </div>
 
