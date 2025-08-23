@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import nodemailer from "nodemailer";
 dotenv.config();
 
 const app = express();
@@ -73,6 +74,83 @@ app.post("/api/payfast/notify", (req, res) => {
   console.log("PayFast IPN Received:", req.body);
   // TODO: validate signature & store recurring payment info
   res.sendStatus(200);
+});
+
+// ✅ EMAIL ROUTE - for email js
+app.post("/send-email", async (req, res) => {
+  const {
+    fullName,
+    contactNumber,
+    email,
+    vehicleMake,
+    vehicleModel,
+    vehicleYear,
+    issueDescription,
+    pickupLocation,
+    preferredDate,
+    preferredTime,
+    serviceType,
+    urgency,
+  } = req.body;
+
+  try {
+  
+    const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT) || 587,
+  secure: process.env.SMTP_PORT == 465, // true for 465, false for 587
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false, // allows self-signed certs
+  },
+});
+
+
+    await transporter.sendMail({
+      from: `"Auto First Bookings" <${process.env.SMTP_USER}>`,
+      to: process.env.RECEIVER_EMAIL,
+      subject: `New Service Booking - ${serviceType.toUpperCase()}`,
+      html: `
+        <h2>New Service Request</h2>
+        <p><b>Name:</b> ${fullName}</p>
+        <p><b>Contact:</b> ${contactNumber}</p>
+        <p><b>Email:</b> ${email}</p>
+        <hr />
+        <p><b>Vehicle:</b> ${vehicleMake} ${vehicleModel} (${vehicleYear || "N/A"})</p>
+        <p><b>Issue:</b> ${issueDescription}</p>
+        <hr />
+        <p><b>Pickup Location:</b> ${pickupLocation}</p>
+        <p><b>Preferred Date:</b> ${preferredDate}</p>
+        <p><b>Preferred Time:</b> ${preferredTime || "Anytime"}</p>
+        <p><b>Service Type:</b> ${serviceType}</p>
+        <p><b>Urgency:</b> ${urgency}</p>
+      `,
+    });
+
+     await transporter.sendMail({
+      from: `"Auto First Bookings" <${process.env.SMTP_USER}>`,
+      to: email, // user email
+      subject: `Booking Confirmation - ${serviceType}`,
+      html: `
+        <h2>Hi ${fullName},</h2>
+        <p>Thank you for booking your ${serviceType} service with us!</p>
+        <p><b>Pickup Location:</b> ${pickupLocation}</p>
+        <p><b>Preferred Date & Time:</b> ${preferredDate} ${preferredTime || "Anytime"}</p>
+        <p>We will contact you shortly to confirm the details.</p>
+        <p>Regards,<br/>Auto First Team</p>
+         <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-bottom: 20px;
+"/>
+      `,
+    });
+
+    res.status(200).json({ success: true, message: "Booking email sent!" });
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    res.status(500).json({ success: false, message: "Email sending failed" });
+  }
 });
 
 app.listen(PORT, () => {

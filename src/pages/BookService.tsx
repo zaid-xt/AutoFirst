@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Car, User, Phone, Mail, MessageSquare } from 'lucide-react';
 
@@ -17,6 +18,8 @@ const BookService = () => {
     urgency: 'normal'
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -25,11 +28,43 @@ const BookService = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    alert('Service request submitted successfully! We will contact you shortly.');
+    setIsSubmitting(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/send-email", formData);
+
+      if (response.data.success) {
+        alert("Service request submitted successfully! A confirmation email has been sent to you.");
+
+        setFormData({
+          fullName: '',
+          contactNumber: '',
+          email: '',
+          vehicleMake: '',
+          vehicleModel: '',
+          vehicleYear: '',
+          issueDescription: '',
+          pickupLocation: '',
+          preferredDate: '',
+          preferredTime: '',
+          serviceType: 'repair',
+          urgency: 'normal'
+        });
+      } else {
+        alert("Service request submitted, but confirmation email could not be sent.");
+      }
+
+    } catch (error: any) {
+      console.error("Error submitting booking:", error);
+      alert(
+        error.response?.data?.message ||
+        "There was an error submitting your request. Please try again later."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -61,7 +96,7 @@ const BookService = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Service Type Selection */}
+                {/* Service Type & Urgency */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -105,7 +140,6 @@ const BookService = () => {
                     <User className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Personal Information</h3>
                   </div>
-                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -121,7 +155,6 @@ const BookService = () => {
                         placeholder="Enter your full name"
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Contact Number *
@@ -139,7 +172,6 @@ const BookService = () => {
                         />
                       </div>
                     </div>
-
                     <div className="md:col-span-2">
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Email Address *
@@ -166,7 +198,6 @@ const BookService = () => {
                     <Car className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Vehicle Information</h3>
                   </div>
-                  
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -182,7 +213,6 @@ const BookService = () => {
                         placeholder="e.g., Toyota"
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Vehicle Model *
@@ -197,7 +227,6 @@ const BookService = () => {
                         placeholder="e.g., Corolla"
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Year
@@ -214,7 +243,6 @@ const BookService = () => {
                       />
                     </div>
                   </div>
-
                   <div className="mt-6">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Issue Description *
@@ -234,13 +262,12 @@ const BookService = () => {
                   </div>
                 </div>
 
-                {/* Location and Schedule */}
+                {/* Location & Schedule */}
                 <div className="bg-red-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <MapPin className="h-6 w-6 text-red-600 mr-2" />
                     <h3 className="text-xl font-semibold text-gray-900">Location & Schedule</h3>
                   </div>
-                  
                   <div className="space-y-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -304,9 +331,12 @@ const BookService = () => {
                 <div className="text-center pt-8">
                   <button
                     type="submit"
-                    className="bg-red-800 hover:bg-red-900 text-white px-12 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    disabled={isSubmitting}
+                    className={`bg-red-800 hover:bg-red-900 text-white px-12 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
+                      isSubmitting ? "opacity-60 cursor-not-allowed" : ""
+                    }`}
                   >
-                    Submit Service Request
+                    {isSubmitting ? "Submitting..." : "Submit Service Request"}
                   </button>
                   
                   <p className="text-gray-600 mt-4">

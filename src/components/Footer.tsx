@@ -126,9 +126,9 @@ const Footer = () => {
               <img src={PayFastLogo} alt="PayFast" className="h-12 object-contain p-2 rounded-lg " />
               <img src={VisaLogo} alt="Visa" className="h-12 object-contain  p-2 rounded-lg " />
               <img src={MasterCardLogo} alt="MasterCard" className="h-12 object-contain  p-2 " />
-              <img src={SecureIDLogo} alt="Secure ID" className="h-12 object-contain bg-white p-2 " />
-              <img src={InstantEft} alt="Instant EFT" className="h-12 object-contain bg-white p-2 " />
-              <img src={Paygate} alt="PayGate" className="h-12 object-contain bg-white p-2 rounded-lg shadow-md border border-grey-200" />
+              <img src={SecureIDLogo} alt="Secure ID" className="h-12 object-contain  p-2 " />
+              <img src={InstantEft} alt="Instant EFT" className="h-12 object-contain  p-2 " />
+              <img src={Paygate} alt="PayGate" className="h-12 object-contain  p-2 " />
             </div>
 
             {/* Copyright */}
