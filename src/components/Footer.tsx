@@ -132,9 +132,12 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <p className="text-gray-400 text-sm">
+            <p className="text-white-400 text-sm">
               © 2025 Auto First Mechanical Aid. All rights reserved.
             </p>
+             <p className="text-white text-sm mt-2">
+            Powered by <a href="https://www.devtechinnovations.co.za/" className="font-bold text-white hover:text-red-700 transition-colors">DevTech Innovations</a>
+        </p>
           </div>
         </div>
       </div>
