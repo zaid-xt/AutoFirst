@@ -1,5 +1,6 @@
 import React from 'react';
 import autoFirstLogo from '../images/auto first.png';
+
 // ✅ Import Payment Logos
 import PayFastLogo from "../images/assets/Payfast logo.svg";
 import MasterCardLogo from "../images/assets/Master Card.svg";
@@ -7,6 +8,7 @@ import VisaLogo from "../images/assets/sid.svg";
 import SecureIDLogo from "../images/assets/SCode_logoMark_grp.svg";
 import InstantEft from "../images/assets/instantEFT_hi-Res_logo_svg.svg";
 import Paygate from "../images/assets/PayGate-3D-Secure-Logo-Verified-by-Visa.png";
+
 import { Link } from 'react-router-dom';
 import {
   Phone,
@@ -22,19 +24,14 @@ const Footer = () => {
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              
               <img
-  src={autoFirstLogo}
-  alt="Auto First Logo"
-   className="h-36 w-36 rounded-lg object-contain filter brightness-150 drop-shadow-lg"
-
-/>
-
-
+                src={autoFirstLogo}
+                alt="Auto First Logo"
+                className="h-36 w-36 rounded-lg object-contain filter brightness-150 drop-shadow-lg"
+              />
             </div>
 
             <p className="text-gray-300 mb-4">
@@ -120,45 +117,22 @@ const Footer = () => {
             </div>
           </div>
         </div>
-    {/* Footer Bottom */}
-        <div className="border-t border-gray-700 mt-10 pt-8 text-center">
-          <div className="flex flex-col items-center space-y-4">
+
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-700 mt-10 pt-8">
+          <div className="flex flex-col items-center space-y-6">
             {/* Payment Logos */}
-            <div className="flex flex-wrap justify-center items-center gap-6">
-              <img
-                src={PayFastLogo}
-                alt="PayFast"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
-              <img
-                src={VisaLogo}
-                alt="Visa"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
-              <img
-                src={MasterCardLogo}
-                alt="MasterCard"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
-              <img
-                src={SecureIDLogo}
-                alt="Secure ID"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
-              <img
-                src={InstantEft}
-                alt="Instant EFT"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
-              <img
-                src={Paygate}
-                alt="PayGate"
-                className="h-10 object-contain bg-white p-1 rounded-lg border border-gray-300 shadow"
-              />
+            <div className="flex flex-wrap justify-center items-center gap-5">
+              <img src={PayFastLogo} alt="PayFast" className="h-12 object-contain p-2 rounded-lg " />
+              <img src={VisaLogo} alt="Visa" className="h-12 object-contain  p-2 rounded-lg " />
+              <img src={MasterCardLogo} alt="MasterCard" className="h-12 object-contain  p-2 " />
+              <img src={SecureIDLogo} alt="Secure ID" className="h-12 object-contain bg-white p-2 " />
+              <img src={InstantEft} alt="Instant EFT" className="h-12 object-contain bg-white p-2 " />
+              <img src={Paygate} alt="PayGate" className="h-12 object-contain bg-white p-2 rounded-lg shadow-md border border-grey-200" />
             </div>
 
             {/* Copyright */}
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-400 text-sm">
               © 2025 Auto First Mechanical Aid. All rights reserved.
             </p>
           </div>
