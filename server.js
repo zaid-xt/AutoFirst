@@ -1,23 +1,44 @@
+// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
+import crypto from "crypto";
+
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:5173", // React frontend
-  methods: ["GET", "POST"],
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // local dev
+      "https://autofirstmechanicalaid.co.za",
+      "https://www.autofirstmechanicalaid.co.za",
+    ],
+    methods: ["GET", "POST", "OPTIONS"],
+  })
+);
 
-// ✅ PayFast Live Merchant Details
-const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
-const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY;
-//const PAYFAST_PASSPHRASE = process.env.PAYFAST_PASSPHRASE;
-const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "live";
+
+
+// ✅ PayFast Config
+const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "sandbox"; // "live" or "sandbox"
+
+let PAYFAST_MERCHANT_ID, PAYFAST_MERCHANT_KEY, PAYFAST_BASE_URL;
+
+if (PAYFAST_ENVIRONMENT === "live") {
+  PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
+  PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY;
+  PAYFAST_BASE_URL = "https://www.payfast.co.za/eng/process";
+} else {
+  PAYFAST_MERCHANT_ID = "10040920";
+  PAYFAST_MERCHANT_KEY = "jfjoti7md44jo";
+  PAYFAST_BASE_URL = "https://sandbox.payfast.co.za/eng/process";
+}
+
 const PAYFAST_RETURN_URL = "http://localhost:5173/confirmation";
 const PAYFAST_CANCEL_URL = "http://localhost:5173/cart";
 const PAYFAST_NOTIFY_URL = "http://localhost:5173/api/payfast/notify";
@@ -33,50 +54,66 @@ const generatePayFastForm = (data) => {
   return params.toString();
 };
 
-// ✅ Create Recurring Subscription
+// ✅ Health check
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running!");
+});
+
+// ✅ Initiate Recurring Subscription
 app.post("/api/payfast/create-subscription", (req, res) => {
   const { items, customer } = req.body;
 
-  // Calculate total amount (monthly subscription)
-  const totalAmount = items.reduce((acc, item) => {
-    const price = parseFloat(item.price.replace("R", ""));
-    return acc + price * item.quantity;
-  }, 0).toFixed(2);
+  // Generate a unique payment reference
+  const paymentRef = `AFMA-${Date.now()}-${crypto.randomBytes(3).toString("hex")}`;
 
-  // ⚡ Recurring subscription data
+  // Calculate total amount (monthly subscription)
+  let totalAmount = items.reduce((acc, item) => {
+    const price = parseFloat(item.price.replace(/\D/g, ""));
+    return acc + price * item.quantity;
+  }, 0);
+
+  if (totalAmount < 1) {
+    return res
+      .status(400)
+      .json({ error: "Recurring amount must be at least R1.00" });
+  }
+
+  totalAmount = totalAmount.toFixed(2);
+
+  // Recurring subscription data
   const subscriptionData = {
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
     return_url: PAYFAST_RETURN_URL,
     cancel_url: PAYFAST_CANCEL_URL,
     notify_url: PAYFAST_NOTIFY_URL,
-    // Subscription-specific fields
     subscription_type: 1, // 1 = recurring billing
-    billing_date: new Date().toISOString().split("T")[0], // start today
-    recurring_amount: totalAmount, // amount per billing cycle
+    billing_date: new Date().toISOString().split("T")[0],
+    recurring_amount: totalAmount,
     cycles: 0, // 0 = infinite cycles
-    frequency: 3, // 3 = monthly (options: 3=monthly, 4=quarterly, 5=biannual, 6=annual)
+    frequency: 3, // 3 = monthly
     amount: totalAmount,
     item_name: items.map((i) => i.name).join(", "),
     name_first: customer.firstName,
     name_last: customer.lastName,
     email_address: customer.email,
+    m_payment_id: paymentRef,
   };
 
   const queryString = generatePayFastForm(subscriptionData);
-  const payFastURL = `https://www.payfast.co.za/eng/process?${queryString}`;
+  const payFastURL = `${PAYFAST_BASE_URL}?${queryString}`;
 
   res.json({ url: payFastURL });
 });
 
-// ✅ PayFast IPN Listener (Optional but recommended)
+// ✅ PayFast IPN Listener
 app.post("/api/payfast/notify", (req, res) => {
-  console.log("PayFast IPN Received:", req.body);
-  // TODO: validate signature & store recurring payment info
+  console.log("🔔 PayFast IPN Received:", req.body);
+  // TODO: Validate signature & store recurring payment info in DB
   res.sendStatus(200);
 });
 
-// ✅ EMAIL ROUTE - for email js
+// ✅ Email Route
 app.post("/send-email", async (req, res) => {
   const {
     fullName,
@@ -94,21 +131,20 @@ app.post("/send-email", async (req, res) => {
   } = req.body;
 
   try {
-  
     const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: process.env.SMTP_PORT == 465, // true for 465, false for 587
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false, // allows self-signed certs
-  },
-});
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: process.env.SMTP_PORT == 465,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
 
-
+    // Email to admin
     await transporter.sendMail({
       from: `"Auto First Bookings" <${process.env.SMTP_USER}>`,
       to: process.env.RECEIVER_EMAIL,
@@ -130,9 +166,10 @@ app.post("/send-email", async (req, res) => {
       `,
     });
 
-     await transporter.sendMail({
+    // Email to customer
+    await transporter.sendMail({
       from: `"Auto First Bookings" <${process.env.SMTP_USER}>`,
-      to: email, // user email
+      to: email,
       subject: `Booking Confirmation - ${serviceType}`,
       html: `
         <h2>Hi ${fullName},</h2>
@@ -141,8 +178,7 @@ app.post("/send-email", async (req, res) => {
         <p><b>Preferred Date & Time:</b> ${preferredDate} ${preferredTime || "Anytime"}</p>
         <p>We will contact you shortly to confirm the details.</p>
         <p>Regards,<br/>Auto First Team</p>
-         <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-bottom: 20px;
-"/>
+        <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-bottom: 20px;"/>
       `,
     });
 
@@ -153,7 +189,78 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+
+// ✅ EMAIL ROUTE - for checkout form
+app.post("/send-checkout-email", async (req, res) => {
+  const {
+    firstName,
+    lastName,
+    idNumber,
+    email,
+    phone,
+    address,
+    city,
+    postalCode,
+  } = req.body;
+
+  try {
+    // Use a different transporter for admin
+    const adminTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_ADMIN_HOST,
+      port: Number(process.env.SMTP_ADMIN_PORT) || 587,
+      secure: process.env.SMTP_ADMIN_PORT == 465,
+      auth: {
+        user: process.env.SMTP_ADMIN_USER,
+        pass: process.env.SMTP_ADMIN_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    // Send details to admin email
+    await adminTransporter.sendMail({
+      from: `"Auto First Checkout" <${process.env.SMTP_ADMIN_USER}>`,
+      to: process.env.ADMIN_RECEIVER_EMAIL,
+      subject: "New Checkout Submission",
+      html: `
+        <h2>New Checkout Submission</h2>
+        <p><b>First Name:</b> ${firstName}</p>
+        <p><b>Last Name:</b> ${lastName}</p>
+        <p><b>ID Number:</b> ${idNumber}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Address:</b> ${address}</p>
+        <p><b>City:</b> ${city}</p>
+        <p><b>Postal Code:</b> ${postalCode}</p>
+      `,
+    });
+
+    // ✅ Optional: Send confirmation to the customer too
+    await adminTransporter.sendMail({
+      from: `"Auto First" <${process.env.SMTP_ADMIN_USER}>`,
+      to: email,
+      subject: "Checkout Confirmation",
+      html: `
+        <h2>Hi ${firstName},</h2>
+        <p>Thank you for completing your checkout with Auto First!</p>
+        <p>We’ve received your details and will be in touch soon.</p>
+        <p>Regards,<br/>Auto First Team</p>
+        <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-top:10px;"/>
+      `,
+    });
+
+    res.status(200).json({ success: true, message: "Checkout email sent!" });
+  } catch (error) {
+    console.error("Checkout Email Error:", error);
+    res.status(500).json({ success: false, message: "Checkout email failed" });
+  }
 });
 
+
+
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🌐 PayFast environment: ${PAYFAST_ENVIRONMENT}`);
+});

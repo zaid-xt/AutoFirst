@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
+import axios from "axios";
 
 // ✅ Import Payment Logos
 import PayFastLogo from "../images/assets/Payfast logo.svg";
@@ -80,43 +81,101 @@ const CheckoutForm = () => {
   };
 
   // ✅ Handle PayFast recurring subscription
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
 
-    setLoading(true);
-    try {
-      const response = await fetch(
-        "http://localhost:5000/api/payfast/create-subscription",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            items,
-            customer: {
-              firstName: formData.firstName,
-              lastName: formData.lastName,
-              email: formData.email,
-            },
-            isSubscription: true,
-          }),
-        }
-      );
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch(
+        
+  //       "http://localhost:5000/api/payfast/create-subscription",
+        
+  //       {
+          
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           items,
+  //           customer: {
+  //             firstName: formData.firstName,
+  //             lastName: formData.lastName,
+  //             email: formData.email,
+  //           },
+  //           isSubscription: true,
+  //         }),
+  //       }
+  //     );
+    
+  //     const data = await response.json();
 
-      const data = await response.json();
+  //     if (data.url) {
+  //       window.location.href = data.url;
+  //     } else {
+  //       alert("Failed to create subscription. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Subscription error:", error);
+  //     alert("Something went wrong. Please try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Failed to create subscription. Please try again.");
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!validateForm()) return;
+
+  setLoading(true);
+  try {
+    // 1️⃣ Send checkout form details to backend to trigger email
+    await axios.post("http://localhost:5000/send-checkout-email", {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      idNumber: formData.idNumber,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      items, // ✅ include items in email
+      totalPrice: getTotalPrice(),
+    });
+
+    // 2️⃣ Create a PayFast subscription session
+    const response = await fetch(
+      "http://localhost:5000/api/payfast/create-subscription",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items,
+          customer: {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+          },
+          isSubscription: true,
+        }),
       }
-    } catch (error) {
-      console.error("Subscription error:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
+    );
+
+    const data = await response.json();
+
+    // 3️⃣ Redirect to PayFast if URL is returned
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Failed to create subscription. Please try again.");
     }
-  };
+  } catch (error) {
+    console.error("Checkout error:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="py-20">
