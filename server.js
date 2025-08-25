@@ -258,6 +258,61 @@ app.post("/send-checkout-email", async (req, res) => {
 });
 
 
+// ✅ Contact Form Email Route
+app.post("/api/contact", async (req, res) => {
+  const { firstName, lastName, email, phone, subject, message } = req.body;
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_ADMIN_HOST,
+      port: Number(process.env.SMTP_ADMIN_PORT) || 587,
+      secure: process.env.SMTP_ADMIN_PORT == 465,
+      auth: {
+        user: process.env.SMTP_ADMIN_USER,
+        pass: process.env.SMTP_ADMIN_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    // Send to admin
+    await transporter.sendMail({
+      from: `"Auto First Contact" <${process.env.SMTP_ADMIN_USER}>`,
+      to: process.env.ADMIN_RECEIVER_EMAIL,
+      subject: `New Contact Form Submission: ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><b>First Name:</b> ${firstName}</p>
+        <p><b>Last Name:</b> ${lastName}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone || "N/A"}</p>
+        <p><b>Subject:</b> ${subject}</p>
+        <p><b>Message:</b><br/>${message}</p>
+      `,
+    });
+
+    // ✅ Optional: Send confirmation to user
+    await transporter.sendMail({
+      from: `"Auto First" <${process.env.SMTP_ADMIN_USER}>`,
+      to: email,
+      subject: "We Received Your Message",
+      html: `
+        <h2>Hi ${firstName},</h2>
+        <p>Thank you for reaching out to us. We have received your message:</p>
+        <p>Our team will get back to you shortly.</p>
+         <p>Regards,<br/>Auto First Team</p>
+        <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-top:10px;"/>
+      `,
+    });
+
+    res.status(200).json({ success: true, message: "Contact email sent!" });
+  } catch (error) {
+    console.error("Contact Email Error:", error);
+    res.status(500).json({ success: false, message: "Contact email failed" });
+  }
+});
+
 
 
 app.listen(PORT, () => {
