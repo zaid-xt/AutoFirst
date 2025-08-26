@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 const PrivacyPolicy: React.FC = () => {
   const privacyDoc = {
     title: "Privacy Policy",
-    file: "/src/docs/PrivacyDocs-AutoMECH.pdf", // Make sure the PDF is in public/docs
+    file: "/src/docs/Auto First Mechanical Aid POLICY.pdf",
   };
 
   return (
