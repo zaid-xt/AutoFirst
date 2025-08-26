@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // For redirect
 import { Helmet } from "react-helmet-async";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
 
 const Contact = () => {
+  const navigate = useNavigate(); // Redirect hook
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -32,7 +35,6 @@ const Contact = () => {
       const data = await res.json();
 
       if (data.success) {
-        setToast({ show: true, type: "success", message: "Message sent successfully!" });
         setFormData({
           firstName: "",
           lastName: "",
@@ -41,6 +43,7 @@ const Contact = () => {
           subject: "",
           message: "",
         });
+        navigate("/thank-you"); // Redirect on success
       } else {
         setToast({ show: true, type: "error", message: "Failed to send message." });
       }
@@ -162,9 +165,9 @@ const Contact = () => {
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Head Office</h3>
                     <p className="text-gray-700 leading-relaxed">
                       06 Mossie Street<br />
-                  Setaria, Thabazimbi<br />
-                  Limpopo, 0383<br />
-                  South Africa
+                      Setaria, Thabazimbi<br />
+                      Limpopo, 0383<br />
+                      South Africa
                     </p>
                   </div>
                 </div>
@@ -223,7 +226,7 @@ const Contact = () => {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 transition-all bg-white text-gray-900"
                 >
-                  <option value="">Select a subject</option>
+                  <option value="" disabled>Select a subject</option>
                   <option value="General Inquiry">General Inquiry</option>
                   <option value="Service Question">Service Question</option>
                   <option value="Package Information">Package Information</option>
@@ -261,111 +264,6 @@ const Contact = () => {
                 </div>
               )}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Hours */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Business Hours
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Emergency Services</h3>
-              <p className="text-gray-600 text-lg font-semibold">24/7</p>
-              <p className="text-gray-500">Available every day</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Phone className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Customer Support</h3>
-              <p className="text-gray-600">
-                Monday - Friday: 8AM - 6PM<br />
-                Saturday: 9AM - 4PM<br />
-                Sunday: 10AM - 2PM
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-red-500 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Mail className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Email Support</h3>
-              <p className="text-gray-600">admin@autofirst.co.za<br />bookings@autofirst.co.za</p>
-              <p className="text-gray-500">Response within 2 hours</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-    <section className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Find Us</h2>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-        Visit our head office or find us anywhere in South Africa through our mobile service
-      </p>
-    </div>
-
-    <div className="rounded-2xl overflow-hidden h-96 w-full">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3621.951455335602!2d27.399317076122863!3d-24.797112108153392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQ3JzQ5LjYiUyAyN8KwMjQnMDYuOCJF!5e0!3m2!1sen!2sza!4v1756230055784!5m2!1sen!2sza"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-       
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="w-full h-full"
-      ></iframe>
-
-    </div>
-  </div>
-</section>
-
-
-
-      {/* Social Media */}
-      <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Follow Us
-          </h2>
-          <p className="text-xl text-white mb-12 max-w-2xl mx-auto">
-            Stay connected for updates, tips, and special offers
-          </p>
-
-         <div className="flex justify-center space-x-8">
-  <a
-    href="#"
-    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-  >
-    <Facebook className="h-8 w-8" />
-  </a>
-  <a
-    href="#"
-    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-  >
-    <Instagram className="h-8 w-8" />
-  </a>
-  <a
-    href="#"
-    className="bg-red-700 text-white hover:bg-white hover:text-black p-4 rounded-full transition-colors duration-300 transform hover:scale-110"
-  >
-    <Twitter className="h-8 w-8" />
-  </a>
-
           </div>
         </div>
       </section>
