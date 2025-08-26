@@ -109,8 +109,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-red-700 mt-1" />
                 <span className="text-gray-300">
-                  123 Service Road<br />
-                  Johannesburg, 2000<br />
+                  06 Mossie Street<br />
+                  Setaria, Thabazimbi<br />
+                  Limpopo, 0383<br />
                   South Africa
                 </span>
               </div>

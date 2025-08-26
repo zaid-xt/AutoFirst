@@ -16,6 +16,7 @@ import CheckoutForm from "./pages/CheckoutForm";
 import { CartProvider } from "./contexts/CartContext";
 import Confirmation from "./pages/Confirmation";
 import ThankYou from "./pages/ThankYou";
+import LegalDocuments from "./pages/LegalDocuments";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckoutForm />} />
               <Route path="/confirmation" element={<Confirmation />} />
+              <Route path="/Privacy-Policy" element={<LegalDocuments />} />
             
             </Routes>
           </main>

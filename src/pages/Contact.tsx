@@ -320,7 +320,7 @@ const Contact = () => {
 
     <div className="rounded-2xl overflow-hidden h-96 w-full">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.3396766504025!2d18.68943658812081!3d-33.932390653247374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc51e6ac8a654f%3A0x5b0da9390693fadb!2s6%20Mossie%20St%2C%20Kuils%20River%2C%20Cape%20Town%2C%207580!5e0!3m2!1sen!2sza!4v1754250930260!5m2!1sen!2sza"
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3621.951455335602!2d27.399317076122863!3d-24.797112108153392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQ3JzQ5LjYiUyAyN8KwMjQnMDYuOCJF!5e0!3m2!1sen!2sza!4v1756230055784!5m2!1sen!2sza"
         width="100%"
         height="100%"
         style={{ border: 0 }}
@@ -329,6 +329,7 @@ const Contact = () => {
         referrerPolicy="no-referrer-when-downgrade"
         className="w-full h-full"
       ></iframe>
+
     </div>
   </div>
 </section>
