@@ -291,18 +291,18 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <span className="ml-2">
                       I agree to the{" "}
                       <Link
-                        to="/terms"
+                        to="/privacy-policy"
                         className="text-blue-600 hover:text-blue-800"
                       >
                         Terms
                       </Link>{" "}
                       and{" "}
                       <Link
-                        to="/privacy"
+                        to="/privacy-policy"
                         className="text-blue-600 hover:text-blue-800"
                       >
                         Privacy Policy
-                      </Link>{" "}
+                      </Link>{""}
                       *
                     </span>
                   </label>
