@@ -25,7 +25,7 @@ app.use(
 
 
 // ✅ PayFast Config
-const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "sandbox"; // "live" or "sandbox"
+const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "live"; // "live" or "sandbox"
 
 let PAYFAST_MERCHANT_ID, PAYFAST_MERCHANT_KEY, PAYFAST_BASE_URL;
 
