@@ -1,9 +1,44 @@
-// import React from 'react';
-import { Shield, Award, Users, Heart } from 'lucide-react';
+import { Shield, Award, Heart } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   return (
     <div className="pt-16">
+      {/* SEO Meta Tags */}
+       <Helmet>
+        <title>About Auto First | Reliable Roadside Assistance in South Africa</title>
+        <meta
+          name="title"
+          content="About Auto First | Reliable Roadside Assistance in South Africa"
+        />
+        <meta
+          name="description"
+          content="Discover Auto First's mission, vision, and values. We are South Africa's trusted roadside assistance and vehicle service provider, committed to keeping you moving."
+        />
+        <meta
+          name="keywords"
+          content="Auto First, roadside assistance South Africa, emergency vehicle service, auto repair, breakdown service, towing South Africa, mechanical aid services, vehicle maintenance, car repair South Africa, 24/7 roadside help, professional automotive services, vehicle protection plans"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <link rel="canonical" href="https://www.autofirst.co.za/about" />
+
+         {/* Open Graph / Social */}
+        <meta property="og:title" content="About Auto First | Reliable Roadside Assistance" />
+        <meta
+          property="og:description"
+          content="Learn about Auto First – our mission, vision, and values. Trusted by thousands for fast, reliable roadside assistance in South Africa."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.autofirst.co.za/about" />
+        <meta
+          property="og:image"
+          content="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg"
+        />
+        <meta property="og:site_name" content="Auto First" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,90 +109,14 @@ const About = () => {
                 Our Story
               </h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
-                {/* <p>
-                  Auto First Mechanical Aid was founded in 2010 with a simple yet powerful vision: 
-                  to transform the roadside assistance industry in South Africa. Our founder, 
-                  Michael Thompson, a veteran automotive engineer with over 20 years of experience, 
-                  recognized the gap in reliable, professional emergency vehicle services.
-                </p>
-                 */}
                 <p>
-                 Auto-First began as a passionate side hustle that I operated from my garage, driven by a vision to provide affordable vehicle protection to South African motorists. What started as a modest operation has grown into a thriving business over our five-year journey. While we're proud to have assisted thousands of customers with their mechanical needs, we remain focused on our 99.5% customer satisfaction rate as we work toward our goal of transforming this garage-born business into a major industry player. Every day, we're building on those humble beginnings to create a company that maintains its personal touch while expanding our reach and services.
+                  Auto-First began as a passionate side hustle that I operated from my garage, driven by a vision to provide affordable vehicle protection to South African motorists. What started as a modest operation has grown into a thriving business over our five-year journey. While we're proud to have assisted thousands of customers with their mechanical needs, we remain focused on our 99.5% customer satisfaction rate as we work toward our goal of transforming this garage-born business into a major industry player. Every day, we're building on those humble beginnings to create a company that maintains its personal touch while expanding our reach and services.
                 </p>
-
-                {/* <p>
-                  What started as a small operation with just two service vehicles has grown into 
-                  South Africa's premier mechanical aid service, operating across all major cities 
-                  and highways. We've assisted thousands of customers and maintained a 99.5% 
-                  customer satisfaction rating.
-                </p> */}
-                
-                {/* <p>
-                  Today, Auto First continues to innovate, incorporating cutting-edge diagnostic 
-                  technology and expanding our service offerings to meet the evolving needs of 
-                  modern drivers. Our commitment remains unchanged: delivering exceptional service 
-                  when you need it most.
-                </p> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Team Section
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Meet Our Leadership Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experienced professionals dedicated to automotive excellence
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
-              <img
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-                alt="Michael Thompson"
-                className="w-32 h-32 rounded-full mx-auto mb-6 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Michael Thompson</h3>
-              <p className="text-orange-500 font-semibold mb-4">Founder & CEO</p>
-              <p className="text-gray-600">
-                20+ years automotive engineering experience. Passionate about customer service excellence.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
-              <img
-                src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg"
-                alt="Sarah Mitchell"
-                className="w-32 h-32 rounded-full mx-auto mb-6 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Sarah Mitchell</h3>
-              <p className="text-orange-500 font-semibold mb-4">Operations Director</p>
-              <p className="text-gray-600">
-                Expert in logistics and fleet management. Ensures 24/7 service availability nationwide.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
-              <img
-                src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg"
-                alt="David Rodriguez"
-                className="w-32 h-32 rounded-full mx-auto mb-6 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">David Rodriguez</h3>
-              <p className="text-orange-500 font-semibold mb-4">Technical Director</p>
-              <p className="text-gray-600">
-                Master technician specializing in modern vehicle diagnostics and repair technologies.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 py-20 bg-blue-800 text-white">

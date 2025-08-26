@@ -1,15 +1,44 @@
-// import React from 'react';
+import { Helmet } from "react-helmet-async";
 import { Wrench, Zap, Clock, Shield, ArrowRight, CheckCircle } from 'lucide-react';
 
 const Services = () => {
   return (
     <div className="pt-16">
+      {/* SEO Helmet */}
+      <Helmet>
+  <title>Auto First Services | Vehicle Repairs & Emergency Assistance</title>
+  
+  {/* Basic SEO */}
+  <meta name="title" content="Auto First Services | Vehicle Repairs & Emergency Assistance" />
+  <meta
+    name="description"
+    content="Explore Auto First's professional automotive services, including common vehicle repairs, emergency breakdown support, and 24/7 roadside assistance across South Africa."
+  />
+  <meta
+    name="keywords"
+    content="Auto First services, vehicle repairs, emergency breakdown, roadside assistance, automotive solutions, towing, car maintenance South Africa, 24/7 roadside help, certified mechanics"
+  />
+  <meta name="robots" content="index, follow" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="English" />
+  <link rel="canonical" href="https://autofirst.co.za/services" />
+
+  {/* Open Graph / Social */}
+  <meta property="og:title" content="Auto First Services | Vehicle Repairs & Emergency Assistance" />
+  <meta
+    property="og:description"
+    content="Professional automotive solutions to keep you safe and mobile. Learn about our vehicle repair and emergency services across South Africa."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://autofirst.co.za/services" />
+  <meta property="og:image" content="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg" />
+  <meta property="og:site_name" content="Auto First" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our Services
-          </h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Professional automotive solutions designed to keep you safe and mobile
           </p>
@@ -21,7 +50,6 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
-            {/* Common Vehicle Repairs */}
            {/* Common Vehicle Repairs */}
 <div className="bg-gradient-to-br from-red-50 to-red-100 p-12 rounded-2xl">
   <div className="bg-red-600 p-4 rounded-full w-16 h-16 mb-8 flex items-center justify-center">

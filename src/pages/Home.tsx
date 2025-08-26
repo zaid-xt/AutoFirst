@@ -1,6 +1,6 @@
-// import React, { useState, useEffect } from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Shield, Clock, Users, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Home = () => {
@@ -11,19 +11,16 @@ const Home = () => {
       name: "Sarah Johnson",
       rating: 5,
       text: "Auto First saved my day! My car broke down on the highway and they had me back on the road within an hour. Professional and reliable service.",
-      // location: "Johannesburg"
     },
     {
       name: "Mike Peters",
       rating: 5,
       text: "Excellent service and fair pricing. The technician was knowledgeable and explained everything clearly. Highly recommend!",
-      // location: "Cape Town"
     },
     {
       name: "Lisa Williams",
       rating: 5,
       text: "24/7 availability is a game-changer. Had an emergency and they were there promptly. Outstanding customer service!",
-      // location: "Durban"
     }
   ];
 
@@ -44,6 +41,29 @@ const Home = () => {
 
   return (
     <div className="pt-16">
+      {/* SEO META TAGS */}
+      <Helmet>
+        <title>Auto First | 24/7 Roadside Assistance & Vehicle Repairs in South Africa</title>
+        <meta
+          name="description"
+          content="Auto First offers professional roadside assistance, vehicle repairs, and emergency breakdown services available 24/7 across South Africa. Fast, reliable, and trusted."
+        />
+        <meta
+          name="keywords"
+          content="roadside assistance, vehicle repairs, breakdown recovery, emergency car repair, towing services, South Africa"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Auto First | 24/7 Roadside Assistance & Vehicle Repairs" />
+        <meta property="og:description" content="Fast, reliable roadside assistance and vehicle repairs available anytime, anywhere in South Africa." />
+        <meta property="og:image" content="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg" />
+        <meta property="og:url" content="https://www.autofirst.co.za" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black/40 to-black">
         <div className="absolute inset-0">

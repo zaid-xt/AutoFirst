@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Star, Zap, Shield, Crown } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
+import { Helmet } from 'react-helmet-async';
 
 const Packages = () => {
   const { addToCart } = useCart();
@@ -15,7 +16,6 @@ const Packages = () => {
       icon: <Shield className="h-8 w-8" />,
       color: "red",
       popular: false,
-      // responseTime: "60 min",
       supportLevel: "Standard Support",
       description: "Comprehensive coverage for essential vehicle components",
       features: [
@@ -29,7 +29,6 @@ const Packages = () => {
         { feature: "Brake Pads" },
         { feature: "Battery Replacements" },
         { feature: "CV Joint Replacements" },
-
         { feature: "Wheel Bearing" },
         { feature: "Alternator" },
         { feature: "Sealing Gaskets" },
@@ -84,7 +83,6 @@ const Packages = () => {
         { feature: "Battery Replacements" },
         { feature: "Wheel Bearings" },
         { feature: "General Diagnostics and Inspection" },
-
       ]
     }
   ];
@@ -103,6 +101,30 @@ const Packages = () => {
 
   return (
     <div className="pt-16">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Auto First Packages | Mechanical Aid & Vehicle Protection</title>
+        <meta
+          name="description"
+          content="Explore Auto First's mechanical aid packages for comprehensive vehicle protection. Choose Gold, Moderate, or Basic coverage tailored for your vehicle."
+        />
+        <meta
+          name="keywords"
+          content="Auto First packages, vehicle protection, mechanical aid, roadside assistance, Gold package, Moderate package, Basic package, car maintenance South Africa"
+        />
+        <link rel="canonical" href="https://autofirst.co.za/packages" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Auto First Packages | Mechanical Aid & Vehicle Protection" />
+        <meta
+          property="og:description"
+          content="Choose the right mechanical aid package for your vehicle. Gold, Moderate, or Basic coverage for peace of mind on the road."
+        />
+        <meta property="og:image" content="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg" />
+        <meta property="og:url" content="https://autofirst.co.za/packages" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -112,76 +134,6 @@ const Packages = () => {
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Comprehensive protection plans for your vehicle's mechanical components
           </p>
-        </div>
-      </section>
-
-      {/* Packages Grid - Modified width here */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full"> {/* Removed max-w-4xl constraint */}
-            {packages.map((pkg, index) => {
-              const colors = getColorClasses(pkg.color, pkg.popular);
-              return (
-                <div
-                  key={index}
-                  className={`bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col ${
-                    pkg.popular ? 'border-4 border-red-500 relative' : 'border border-gray-200'
-                  }`}
-                >
-                  {pkg.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                        Most Popular
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="p-8 flex-grow">
-                    <div className={`${colors.bg} p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center text-white`}>
-                      {pkg.icon}
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">
-                      {pkg.name}
-                    </h3>
-                    
-                    <div className="text-center mb-8">
-                      <span className="text-5xl font-bold text-gray-900">{pkg.price}</span>
-                      <span className="text-gray-600 text-lg">{pkg.period}</span>
-                    </div>
-                    
-                    <ul className="space-y-4 mb-8">
-                      {pkg.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <Check className={`h-5 w-5 ${colors.text} mt-1 mr-3 flex-shrink-0`} />
-                          <span className="text-gray-700">{feature.feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="p-6">
-                    <button
-                      onClick={() => addToCart({
-                        id: pkg.id,
-                        name: pkg.name,
-                        price: pkg.price,
-                        period: pkg.period,
-                        responseTime: pkg.responseTime,
-                        supportLevel: pkg.supportLevel,
-                        description: pkg.description,
-                        features: pkg.features.map(f => ({ feature: f.feature, included: f.included }))
-                      })}
-                      className={`w-full ${colors.button} text-white py-4 px-6 rounded-lg 
-                      font-semibold text-center transition-colors duration-300 block hover:shadow-lg`}
-                    >
-                      Select {pkg.name}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 

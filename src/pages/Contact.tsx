@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
 
 const Contact = () => {
@@ -60,6 +61,30 @@ const Contact = () => {
 
   return (
     <div className="pt-16 relative">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Contact Auto First | 24/7 Roadside Assistance & Support</title>
+        <meta
+          name="description"
+          content="Contact Auto First today for 24/7 roadside assistance, towing, and vehicle support across South Africa. Call us anytime for emergencies or general inquiries."
+        />
+        <meta
+          name="keywords"
+          content="Auto First contact, roadside assistance South Africa, 24/7 towing, emergency vehicle service, Auto First phone number, Auto First email"
+        />
+        <link rel="canonical" href="https://autofirst.co.za/contact" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact Auto First | 24/7 Roadside Assistance & Support" />
+        <meta
+          property="og:description"
+          content="Get in touch with Auto First for professional roadside assistance, towing services, and vehicle support anywhere in South Africa."
+        />
+        <meta property="og:image" content="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg" />
+        <meta property="og:url" content="https://autofirst.co.za/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
