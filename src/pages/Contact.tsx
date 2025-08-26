@@ -161,10 +161,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Head Office</h3>
                     <p className="text-gray-700 leading-relaxed">
-                      123 Service Road<br />
-                      Johannesburg Central<br />
-                      Johannesburg, 2000<br />
-                      South Africa
+                      06 Mossie Street<br />
+                  Setaria, Thabazimbi<br />
+                  Limpopo, 0383<br />
+                  South Africa
                     </p>
                   </div>
                 </div>
