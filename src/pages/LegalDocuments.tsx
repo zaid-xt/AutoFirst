@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 const PrivacyPolicy: React.FC = () => {
   const privacyDoc = {
     title: "Privacy Policy",
-    file: "/src/docs/Auto First Mechanical Aid POLICY.pdf",
+    file: "/Auto First Mechanical Aid POLICY.pdf",
   };
 
   return (
@@ -58,32 +58,32 @@ const PrivacyPolicy: React.FC = () => {
       </section>
 
       {/* PDF Viewer Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8">
-         
+<section className="py-20 bg-gray-50">
+  <div className="max-w-5xl mx-auto px-6 sm:px-8">
+    {/* PDF Viewer */}
+    <div className="bg-white rounded-xl shadow-lg p-4">
+      <iframe
+        src={`${privacyDoc.file}#toolbar=0&navpanes=0&scrollbar=0`}
+        title={privacyDoc.title}
+        className="w-full h-[80vh] rounded-xl"
+        style={{ border: "none" }}
+      ></iframe>
+    </div>
 
-          {/* PDF Viewer */}
-          <div className="bg-white rounded-xl shadow-lg p-4">
-            <iframe
-              src={privacyDoc.file}
-              title={privacyDoc.title}
-              className="w-full h-[80vh] rounded-xl"
-            ></iframe>
-          </div>
+    {/* Download Button */}
+    <div className="flex justify-center mt-8">
+      <a
+        href={privacyDoc.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-8 py-3 bg-red-600 text-white rounded-full shadow-md hover:bg-red-700 transition text-lg font-semibold"
+      >
+        Download {privacyDoc.title}
+      </a>
+    </div>
+  </div>
+</section>
 
-          {/* Download Button */}
-          <div className="flex justify-center mt-8">
-            <a
-              href={privacyDoc.file}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-red-600 text-white rounded-full shadow-md hover:bg-red-700 transition text-lg font-semibold"
-            >
-              Download {privacyDoc.title}
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
