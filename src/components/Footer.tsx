@@ -39,7 +39,7 @@ const Footer = () => {
               Available 24/7 to keep you moving.
             </p>
 
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-red-600 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -49,7 +49,7 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-red-600 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -76,6 +76,11 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+               <li>
+                <Link to="/Privacy-Policy" className="text-gray-300 hover:text-red-700 transition-colors">
+                 Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -96,14 +101,14 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-red-700" />
-                <a href="tel:+27123456789" className="text-gray-300 hover:text-red-700 transition-colors">
-                  +27 12 345 6789
+                <a href="tel:+27649044716" className="text-gray-300 hover:text-red-700 transition-colors">
+                   +27 64 904 4716
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-red-700" />
-                <a href="mailto:info@autofirst.co.za" className="text-gray-300 hover:text-red-700 transition-colors">
-                  admin@autofirst.co.za
+                <Mail className="h-10 w-5 text-red-700" />
+                <a href="mailto:admin@autofirstmechanicalaid.co.za" className="text-gray-300 hover:text-red-700 text-sm transition-colors">
+                  admin@autofirstmechanicalaid.co.za
                 </a>
               </div>
               <div className="flex items-start space-x-3">

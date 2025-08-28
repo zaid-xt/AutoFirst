@@ -27,7 +27,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("https://backend.autofirstmechanicalaid.co.za/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -118,8 +118,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Emergency Hotline</h3>
-                    <a href="tel:+27123456789" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
-                      +27 12 345 6789
+                    <a href="tel:+27649044716" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
+                      +27 64 904 4716
                     </a>
                     <p className="text-gray-600 mt-1">Available 24/7 for emergencies</p>
                   </div>
@@ -132,8 +132,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">General Inquiries</h3>
-                    <a href="tel:+27115551234" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
-                      +27 11 555 1234
+                    <a href="tel:+27649044716" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
+                      +27 64 904 4716
                     </a>
                     <p className="text-gray-600 mt-1">Monday - Friday: 8AM - 6PM</p>
                   </div>
@@ -145,12 +145,13 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Support</h3>
-                    <a href="mailto:admin@autofirst.co.za" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
-                      admin@autofirst.co.za
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1">Email Support</h3>
+                    <a href="mailto:admin@autofirstmechanicalaid.co.za" className="text-red-600 hover:text-red-700 font-semibold text-base block">
+                      admin@autofirstmechanicalaid.co.za
                     </a>
-                    <a href="mailto:bookings@autofirst.co.za" className="text-red-600 hover:text-red-700 font-semibold text-lg block">
-                      bookings@autofirst.co.za
+                    <a href="mailto:bookings@autofirstmechanicalaid.co.za" className="text-red-600 hover:text-red-700 font-semibold text-base block">
+                     bookings@autofirstmechanicalaid.co.za
+
                     </a>
                     <p className="text-gray-600 mt-1">Response within 2 hours</p>
                   </div>

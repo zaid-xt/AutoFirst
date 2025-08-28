@@ -33,7 +33,7 @@ const BookService = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/send-email", formData);
+      const response = await axios.post("https://backend.autofirstmechanicalaid.co.za/send-email", formData);
 
       if (response.data.success) {
         alert("Service request submitted successfully! A confirmation email has been sent to you.");

@@ -129,7 +129,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
   try {
     // 1️⃣ Send checkout form details to backend to trigger email
-    await axios.post("http://localhost:5000/send-checkout-email", {
+    await axios.post("https://backend.autofirstmechanicalaid.co.za/send-checkout-email", {
       firstName: formData.firstName,
       lastName: formData.lastName,
       idNumber: formData.idNumber,
@@ -144,7 +144,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     // 2️⃣ Create a PayFast subscription session
     const response = await fetch(
-      "http://localhost:5000/api/payfast/create-subscription",
+      "https://backend.autofirstmechanicalaid.co.za/api/payfast/create-subscription",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

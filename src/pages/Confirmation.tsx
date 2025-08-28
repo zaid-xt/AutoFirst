@@ -5,34 +5,36 @@ import { CheckCircle } from "lucide-react";
 const Confirmation = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+
   const [paymentDetails, setPaymentDetails] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   const paymentId = queryParams.get("m_payment_id") || "";
 
   useEffect(() => {
     if (!paymentId) return;
 
-    useEffect(() => {
-  const paymentId = queryParams.get("m_payment_id");
-  if (paymentId && paymentId !== "N/A") {
-    fetch(`https://backend.autofirstmechanicalaid.co.za/api/payfast/payment/${paymentId}`)
-      .then(res => res.json())
-      .then(data => setPaymentData(data.data)) // update state
-      .catch(console.error);
-  }
-}, []);
-
-
     // Fetch payment details from backend
-    fetch(`https://backend.autofirstmechanicalaid.co.za/payment/${paymentId}`)
+    fetch(`https://backend.autofirstmechanicalaid.co.za/api/payfast/payment/${paymentId}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) setPaymentDetails(data.data);
+        if (data.success) {
+          setPaymentDetails(data.data);
+        }
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, [paymentId]);
 
-  const amount = paymentDetails?.amount || queryParams.get("amount_gross") || "N/A";
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <p className="text-gray-600 text-lg">Fetching payment details...</p>
+      </div>
+    );
+  }
+
+  const amount = paymentDetails?.amount || "N/A";
   const status = paymentDetails?.status || "Pending";
 
   return (
@@ -62,7 +64,9 @@ const Confirmation = () => {
           <p className="text-gray-800">
             <span className="font-semibold">Status:</span>{" "}
             <span
-              className={`font-medium ${status === "Completed" ? "text-green-600" : "text-yellow-600"}`}
+              className={`font-medium ${
+                status === "Completed" ? "text-green-600" : "text-yellow-600"
+              }`}
             >
               {status}
             </span>

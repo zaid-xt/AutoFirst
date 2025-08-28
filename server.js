@@ -25,7 +25,7 @@ app.use(
 
 
 // ✅ PayFast Config
-const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "sandbox"; // "live" or "sandbox"
+const PAYFAST_ENVIRONMENT = process.env.PAYFAST_ENVIRONMENT || "live"; // "live" or "sandbox"
 
 let PAYFAST_MERCHANT_ID, PAYFAST_MERCHANT_KEY, PAYFAST_BASE_URL;
 
@@ -218,23 +218,30 @@ app.post("/send-checkout-email", async (req, res) => {
       },
     });
 
-    // Send details to admin email
-    await adminTransporter.sendMail({
-      from: `"Auto First Checkout" <${process.env.SMTP_ADMIN_USER}>`,
-      to: process.env.ADMIN_RECEIVER_EMAIL,
-      subject: "New Checkout Submission",
-      html: `
-        <h2>New Checkout Submission</h2>
-        <p><b>First Name:</b> ${firstName}</p>
-        <p><b>Last Name:</b> ${lastName}</p>
-        <p><b>ID Number:</b> ${idNumber}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Address:</b> ${address}</p>
-        <p><b>City:</b> ${city}</p>
-        <p><b>Postal Code:</b> ${postalCode}</p>
-      `,
-    });
+await adminTransporter.sendMail({
+  from: `"Auto First Checkout" <${process.env.SMTP_ADMIN_USER}>`,
+  to: process.env.ADMIN_RECEIVER_EMAIL,
+  subject: "New Checkout Submission",
+  html: `
+    <h2>New Checkout Submission</h2>
+    <p><b>First Name:</b> ${firstName}</p>
+    <p><b>Last Name:</b> ${lastName}</p>
+    <p><b>ID Number:</b> ${idNumber}</p>
+    <p><b>Email:</b> ${email}</p>
+    <p><b>Phone:</b> ${phone}</p>
+    <p><b>Address:</b> ${address}</p>
+    <p><b>City:</b> ${city}</p>
+    <p><b>Postal Code:</b> ${postalCode}</p>
+    <br/>
+    <span style="color: red; font-weight: bold;">
+      YOU AS THE OWNER SHOULD ALWAYS DOUBLE CHECK ON PAYFAST IF A TRANSACTION WENT THROUGH BEFORE RENDERING ANY SERVICES!
+    </span>
+    <p>
+      <b>NB:</b> YOU AND THE POTENTIAL CUSTOMER/USER WILL GET AN INVOICE FROM PAYFAST DIRECTLY ONCE THE TRANSACTION GOES THROUGH.
+    </p>
+  `,
+});
+
 
     // ✅ Optional: Send confirmation to the customer too
     await adminTransporter.sendMail({
@@ -243,7 +250,7 @@ app.post("/send-checkout-email", async (req, res) => {
       subject: "Checkout Confirmation",
       html: `
         <h2>Hi ${firstName},</h2>
-        <p>Thank you for completing your checkout with Auto First!</p>
+        <p>Wellcome onboard and thank you for choosing Auto First Mechanical Aid!</p>
         <p>We’ve received your details and will be in touch soon.</p>
         <p>Regards,<br/>Auto First Team</p>
         <img src="https://i.ibb.co/kszWcWpn/auto-first.png" alt="Auto First Logo" style="width:150px; margin-top:10px;"/>
