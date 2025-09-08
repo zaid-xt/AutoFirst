@@ -123,7 +123,7 @@ const Navbar = () => {
                   Cart
                 </span>
                 {totalItems > 0 && (
-                  <span className="bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                  <span className="bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
                     {totalItems}
                   </span>
                 )}
@@ -131,7 +131,7 @@ const Navbar = () => {
               <Link
                 to="/book"
                 onClick={() => setIsOpen(false)}
-                className="block mx-4 text-center bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                className="block mx-4 text-center bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
               >
                 Book Service
               </Link>

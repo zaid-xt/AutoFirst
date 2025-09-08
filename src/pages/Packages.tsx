@@ -30,7 +30,6 @@ const Packages = () => {
         { feature: "Brake Pads" },
         { feature: "Battery Replacements" },
         { feature: "CV Joint Replacements" },
-
         { feature: "Wheel Bearing" },
         { feature: "Alternator" },
         { feature: "Sealing Gaskets" },
@@ -38,6 +37,7 @@ const Packages = () => {
         { feature: "Oil Pump" },
         { feature: "Starter Motors" },
         { feature: "General Diagnostics and Inspection" },
+        { feature: "Motor Vehicle Disc Renewal" }
       ]
     },
     {
@@ -65,6 +65,7 @@ const Packages = () => {
         { feature: "Starter Motor" },
         { feature: "Fuel Pump" },
         { feature: "General Diagnostics and Inspection" },
+        { feature: "Motor Vehicle Disc Renewal" }
       ]
     },
     {
@@ -85,7 +86,7 @@ const Packages = () => {
         { feature: "Battery Replacements" },
         { feature: "Wheel Bearings" },
         { feature: "General Diagnostics and Inspection" },
-
+        { feature: "Motor Vehicle Disc Renewal" }
       ]
     }
   ];
