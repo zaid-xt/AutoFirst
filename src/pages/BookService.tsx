@@ -372,7 +372,7 @@ const BookService = () => {
                 href="tel:+27123456789"
                 className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors"
               >
-                +27 12 345 6789
+                +27 64 904 4716
               </a>
             </div>
 
@@ -385,7 +385,7 @@ const BookService = () => {
               <button
                 onClick={() => {
                   const message = encodeURIComponent("Hi, I need to book a service");
-                  window.open(`https://wa.me/27123456789?text=${message}`, '_blank');
+                  window.open(`https://wa.me/27649044716?text=${message}`, '_blank');
                 }}
                 className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors"
               >
@@ -400,10 +400,10 @@ const BookService = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Support</h3>
               <p className="text-gray-600 mb-4">Non-urgent inquiries</p>
               <a
-                href="mailto:bookings@autofirst.co.za"
+                href="mailto:bookings@autofirstmechanicalaid.co.za"
                 className="text-red-600 hover:text-red-700 font-semibold text-lg transition-colors"
               >
-                bookings@autofirst.co.za
+                bookings@autofirstmechanicalaid.co.za
               </a>
             </div>
           </div>
